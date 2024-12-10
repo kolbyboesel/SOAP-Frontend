@@ -1,0 +1,1215 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  bottom: 0;
+  height: calc(100vh - 52.5px);
+  position: absolute;
+  width: 100%;
+  top: 52.5px;
+}
+
+/* Navbar Outside of Default Bootstrap */
+.site-navbar {
+  margin-bottom: 0px;
+  z-index: 1999;
+  position: absolute;
+  width: 100%;
+  top: 0rem;
+  display: flex;
+  color: white;
+}
+
+.navmenu {
+  height: 52.5px;
+  background-color: #f44336;
+  width: 100%;
+}
+
+.navbar-toggler {
+  margin-right: 15px !important;
+  width: 55px;
+}
+
+.nav-item {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.nav-item:hover {
+  border-color: white;
+  border-bottom: solid;
+}
+
+.nav-link:hover {
+  color: white !important;
+}
+
+.active {
+  border-color: white;
+  border-bottom: solid;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Small Screen Adjustments */
+@media screen and (max-width: 992px) {
+  .navmenu {
+      height: 69px;
+      background-color: #f44336;
+      width: 100%;
+  }
+
+  .page {
+      height: calc(100vh - 69px);
+      top: 69px;
+  }
+
+  .nav-link {
+      text-align: center;
+  }
+}
+
+/* Large Screen Adjustments */
+@media (min-width: 992px) {
+  .center-container {
+      display: flex;
+      position: relative;
+      margin: auto;
+  }
+
+  .right-container {
+      display: flex;
+      position: absolute;
+      right: 10px;
+  }
+
+  .navbar-nav {
+      width: 95%;
+  }
+
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+      position: absolute;
+      right: 0px;
+  }
+}
+
+.margin-auto {
+  margin: auto !important;
+}
+
+p {
+  color: #b3b3b3 !important;
+  font-weight: 300 !important;
+}
+
+.bold-font {
+  color: black;
+  font: caption;
+}
+
+.page-text {
+  color: white;
+  width: 100%;
+  height: 1%;
+  padding-top: 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 2vh;
+}
+
+@media screen and (min-width: 1100px) {
+  .sm-screen {
+      display: none !important;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .lg-screen {
+      display: none !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .no-gutters-sm {
+      margin-right: 0;
+      margin-left: 0;
+      padding-left: 0;
+      padding-right: 0;
+  }
+}
+
+.glyphicon-calendar:before {
+  content: "\e109";
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji" !important;
+}
+
+h1 {
+  font-size: 2vh !important;
+  text-align: center;
+}
+
+a {
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+a,
+a:hover {
+  text-decoration: none !important;
+}
+
+.content {
+  width: 100vw;
+  top: 85px;
+  height: calc(100vh - 85px);
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+  align-content: flex-start;
+}
+
+.align-flex-start {
+  align-content: flex-start;
+}
+.background-image {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 430px) {
+  .sm-align-end {
+      align-content: end !important;
+  }
+}
+
+.col-8 {
+  width: 66.6666667%;
+}
+
+@media screen and (max-width: 720px) {
+  .col-md-12 {
+      width: 86% !important;
+  }
+}
+
+@media screen and (max-width: 1184px) {
+  .col-lg-12 {
+      width: 100% !important;
+  }
+
+  .col-lg-full {
+      width: 100% !important;
+  }
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+.container {
+  display: grid;
+  max-width: 100%;
+  height: 100%;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  width: auto;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+}
+
+.right {
+  transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+}
+@media screen and (max-width: 1184px) {
+  .mobile-m-hide {
+      display: none !important;
+  }
+}
+.fa-phone:before {
+  content: "\f095";
+}
+
+.fa-phone-square:before {
+  content: "\f098";
+}
+
+.fa-send:before,
+.fa-paper-plane:before {
+  content: "\f1d8";
+}
+
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: "\f1d9";
+}
+
+.fa-globe:before {
+  content: "\f0ac";
+}
+
+.pl-3,
+.px-3 {
+  padding-left: 1rem !important;
+}
+
+.pr-3 {
+  padding-right: 1rem !important;
+}
+
+.pt-5 {
+  padding-top: 30px !important;
+}
+
+.pb-5 {
+  padding-bottom: 30px !important;
+}
+
+.h-auto {
+  height: auto !important;
+}
+
+.h-inherit {
+  height: inherit !important;
+}
+
+.height-6vh {
+  height: 6vh !important;
+}
+
+.width-100 {
+  width: 100% !important;
+  margin-left: 0px;
+}
+
+.pageHeader {
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 3vh;
+}
+
+.border-bottom-none {
+  border-bottom-style: none !important;
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+.pl-0 {
+  padding-left: 0 !important;
+}
+.pt-0 {
+  padding-top: 0 !important;
+}
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+/* Mobile Screen Adjust */
+
+@media screen and (max-width: 766px) {
+  .containerPad {
+      padding-top: 110px !important;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .xs-padding {
+      padding-left: 30px !important;
+      padding-right: 30px !important;
+      padding-top: 10px !important;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .xs-padding-betting {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobileScreen {
+      width: 96% !important;
+      margin-top: 10%;
+  }
+}
+
+/* HomePage Style */
+
+.w3-display-middle {
+  top: 40vh !important;
+}
+
+.middle-bar {
+  white-space: nowrap;
+  background-color: #f44336;
+  opacity: 75%;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  height: fit-content;
+}
+
+.mainHeader {
+  color: white;
+  font-weight: bold;
+  font-size: 4rem;
+  letter-spacing: 2px;
+}
+
+.InfoElement {
+  width: auto;
+  position: inherit;
+  left: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.BackgroundNorm {
+  background-color: #f44336 !important;
+}
+
+.indexContainerPad {
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.infoContainer {
+  max-width: 100vw;
+  width: 100vw;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #d8d8d8 !important;
+  padding-top: 10px;
+}
+
+.img-style {
+  width: 250px;
+  height: auto;
+  margin: auto;
+}
+
+.img-home {
+  height: 100%;
+  margin: auto;
+}
+
+.img-home-info {
+  max-width: 100%;
+  width: fit-content;
+}
+
+.reactiveMobileCenter {
+  height: 100vh;
+}
+
+.reactiveMobileShow {
+  display: none;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .mainHeader {
+      font-size: 2.25rem !important;
+      letter-spacing: 1px;
+  }
+  .mobileMainPadding {
+      padding-top: 40vh !important;
+  }
+
+  .indexContainerPad {
+      padding-top: 50px;
+  }
+  .showIndex {
+      display: block !important;
+  }
+
+  .InfoElement {
+      display: inline-block;
+  }
+}
+.mobileHomePage {
+  background-color: transparent !important;
+}
+
+@media screen and (max-width: 992px) {
+  .mobileHomePage {
+      background-color: transparent !important;
+  }
+
+  .reactiveMobileShow {
+      display: block;
+  }
+  .reactiveMobileHide {
+      display: none;
+  }
+  .reactiveMobileCenter {
+      display: flex;
+      justify-content: center;
+  }
+}
+
+body,
+html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg-1 {
+  min-height: 100%;
+}
+
+.w3-wide {
+  letter-spacing: 10px;
+}
+.w3-hover-opacity {
+  cursor: pointer;
+}
+
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1,
+  .bgimg-2,
+  .bgimg-3 {
+      min-height: 400px;
+  }
+}
+
+.center-elements {
+  display: grid;
+  align-content: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.white-text {
+  color: white !important;
+}
+.right-text {
+  text-align: right;
+}
+
+.footer-style {
+  background-color: #f44336;
+  opacity: 75%;
+  position: absolute;
+  width: 100%;
+}
+
+/* Style for all Live Pages*/
+.score-container-scroll {
+  width: 100%;
+  bottom: 0;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  top: 150px;
+}
+
+.sport-container-scroll {
+  height: calc(100vh - 85px);
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  padding-top: 30px;
+  overflow: auto;
+  top: 85px;
+}
+
+.headerImage {
+  height: 85px;
+  width: 50% !important;
+  margin-left: 25%;
+  position: fixed;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  top: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+@media screen and (max-width: 766px) {
+  .headerImage {
+      font-size: 1.25rem !important;
+  }
+}
+
+@media screen and (min-width: 766px) {
+  .mobilePadding {
+      padding-top: 2vh !important;
+      left: 0 !important;
+  }
+}
+@media screen and (min-width: 1184px) {
+  .mobileSetting {
+      display: none !important;
+  }
+}
+
+.responsiveScrollContainer {
+  width: 100% !important;
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #f44336;
+  height: fit-content;
+}
+
+.responsiveSearchContainer {
+  width: 100% !important;
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #f44336;
+  min-height: 6vh;
+  height: fit-content;
+}
+
+.scrollmenu {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: transparent;
+  white-space: nowrap;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  overflow: auto;
+}
+
+.scrollmenu a {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 510px) {
+  .leftArrow {
+      display: grid !important;
+      border-color: white;
+  }
+
+  .rightArrow {
+      display: grid !important;
+      border-color: white;
+  }
+  .scrollmenu {
+      overflow: auto;
+      width: 90%;
+      justify-content: flex-start;
+  }
+
+  .responsiveScrollContainer {
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
+      height: fit-content !important;
+  }
+
+  .responsiveSearchContainer {
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
+      height: fit-content !important;
+  }
+}
+
+.no-score-info {
+  color: black;
+  width: 100%;
+}
+/* Style for all Sport Pages */
+
+.sport-specific-dropdown {
+  width: 20% !important;
+  left: 25% !important;
+  position: fixed !important;
+  top: 0rem !important;
+  height: 85px;
+}
+
+.date-search-bar {
+  width: 100% !important;
+  background-color: #f44336 !important;
+}
+
+.date-search-container {
+  width: 100% !important;
+  display: flex;
+}
+
+.search-btn {
+  color: white !important;
+  background-color: #dbb5b2 !important;
+  border-color: #dbb5b2 !important;
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-btn:hover {
+  color: #f44336 !important;
+  background-color: white !important;
+  border-color: white !important;
+}
+
+.date-search {
+  color: #f44336ae !important;
+  background-color: white !important;
+  border-color: white !important;
+  display: flex;
+  text-align: center;
+  height: 4vh;
+  border-width: 0px !important;
+}
+
+.date-search:hover {
+  color: white !important;
+  background-color: #dbb5b2 !important;
+  border-color: #dbb5b2 !important;
+}
+
+.dateLabel {
+  color: white;
+}
+/* Scoreboard Styles */
+
+.scoreboard {
+  width: 100%;
+  border-radius: 10px;
+  height: 190px;
+  background-color: white;
+  box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.scoreboard-upcoming {
+  width: 100%;
+  border-radius: 10px;
+  height: 100px;
+  background-color: white;
+  box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.hover-cursor:hover {
+  background-color: rgb(218, 218, 218);
+  cursor: pointer;
+}
+
+.gamePreview {
+  height: fit-content;
+  width: 100%;
+  background-color: white;
+  box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.team-name-style {
+  font-size: 1.25rem;
+  color: black;
+  font-weight: bolder;
+}
+
+.team-record-style {
+  font-size: 0.75rem;
+  color: revert;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap !important;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.scoreboard-collapsible:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.betBoard {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.bestBets {
+  width: 100%;
+  border-radius: 10px;
+  height: 250px;
+  background-color: white;
+  box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.soccer-best-bet {
+  height: 350px !important;
+}
+
+.sportsNews {
+  width: 100%;
+  border-radius: 10px;
+  height: 200px;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.sportsLink {
+  height: 230px;
+}
+
+.sourceLogo {
+  width: 20%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.newsTitle {
+  width: 80%;
+  text-align: right;
+  font-size: 2vh;
+  justify-content: right;
+  align-items: right;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.imageStyle {
+  display: flex;
+  margin: 10%;
+  height: auto;
+  width: 100%;
+  justify-content: left;
+  align-items: center;
+}
+
+.header {
+  align-items: center;
+  border-bottom-style: solid;
+  border-width: 1px;
+  color: black;
+}
+
+.periodHeader {
+  align-items: center;
+  border-bottom-style: solid;
+  border-width: 1px;
+  color: black;
+}
+
+.periodScore {
+  text-align: right;
+  padding-right: 25px;
+}
+
+.border-bottom {
+  border-bottom-style: solid !important;
+  border-width: 1px !important;
+  border-bottom-color: black !important;
+}
+
+.border-top {
+  border-top-style: solid !important;
+  border-width: 1px !important;
+  border-top-color: black !important;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+}
+
+.team .score {
+  text-align: right;
+}
+
+.win .score {
+  font-weight: bold;
+  color: black;
+}
+
+.win .team {
+  color: black;
+  font-weight: bold;
+}
+
+.headerElement {
+  font-size: 1.5vh;
+}
+
+.bet-odds-grid {
+  font-size: 1.5vh;
+  width: 15%;
+  text-align: center;
+}
+
+.bet-main-element {
+  font-size: 1.5vh;
+  overflow: hidden;
+  width: 42%;
+}
+
+/* Signup Form */
+
+/* Set a style for all buttons */
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0 !important;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+      -webkit-transform: scale(0);
+  }
+  to {
+      -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+      transform: scale(0);
+  }
+  to {
+      transform: scale(1);
+  }
+}
+
+.cancelbtn {
+  width: fit-content;
+  color: white;
+  padding: 10px 18px;
+  background-color: #f44336;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cancelbtn:hover {
+  opacity: 0.8;
+}
+
+.cancelSignup {
+  padding: 14px 20px;
+  background-color: #f44336;
+  float: left;
+  width: 50%;
+}
+
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  height: fit-content!important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Full-width inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.modal-container {
+  padding-top: 50px;
+  height: auto;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 12px;
+  width: inherit;
+  text-align: right;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 678px) {
+  span.psw {
+      display: block;
+      float: none;
+  }
+  .cancelbtn .signupbtn {
+      width: 100%;
+  }
+}
+
+.login-cancel {
+  display: flex;
+}
+
+.paypalBtn {
+  background-color: #fefefe;
+  height: auto;
+  border-radius: 10px;
+  max-width: fit-content;
+  margin-top: 50px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.paypalBtnHolder {
+  height: 50%;
+  width: 100%;
+  margin-top: 5%;
+}
+
+/*Loading Screen for ConfirmPayment*/
+.loading {
+  position: fixed;
+  z-index: 999999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8));
+
+  background: -webkit-radial-gradient(
+      rgba(20, 20, 20, 0.8),
+      rgba(0, 0, 0, 0.8)
+  );
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: "";
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(244, 67, 54, 0.75) 1.5em 0 0 0,
+      rgba(244, 67, 54, 0.75) 1.1em 1.1em 0 0,
+      rgba(244, 67, 54, 0.75) 0 1.5em 0 0,
+      rgba(244, 67, 54, 0.75) -1.1em 1.1em 0 0,
+      rgba(244, 67, 54, 0.75) -1.5em 0 0 0,
+      rgba(244, 67, 54, 0.75) -1.1em -1.1em 0 0,
+      rgba(244, 67, 54, 0.75) 0 -1.5em 0 0,
+      rgba(244, 67, 54, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(244, 67, 54, 0.75) 1.5em 0 0 0,
+      rgba(244, 67, 54, 0.75) 1.1em 1.1em 0 0,
+      rgba(244, 67, 54, 0.75) 0 1.5em 0 0,
+      rgba(244, 67, 54, 0.75) -1.1em 1.1em 0 0,
+      rgba(244, 67, 54, 0.75) -1.5em 0 0 0,
+      rgba(244, 67, 54, 0.75) -1.1em -1.1em 0 0,
+      rgba(244, 67, 54, 0.75) 0 -1.5em 0 0,
+      rgba(244, 67, 54, 0.75) 1.1em -1.1em 0 0;
+}
+
+@media screen and (min-width: 992px) {
+  .largeScreenAdjust {
+      width: 70%;
+      margin-left: 15%;
+  }
+}

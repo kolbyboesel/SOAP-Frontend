@@ -1,7 +1,39 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import './styles/App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar'; 
+import Home from './pages/Home';
+import LiveScores from './pages/LiveScores';
+import FavoritesView from './pages/FavoritesView';
+import Contact from './pages/Contact';
+import Signout from './pages/Signout';
+import ChangeEmail from './pages/ChangeEmail';
+import ChangePassword from './pages/ChangePassword';
+import Signup from './pages/Signup';
+import Login from './pages/Login'
 
+const App = () => {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/LiveScores" element={<LiveScores />} />
+        <Route path="/FavoritesView" element={<FavoritesView />} />
+        <Route path="/ContactModal" element={<Contact />} />
+        <Route path="/Signout" element={<Signout />} />
+        <Route path="/ChangeEmail" element={<ChangeEmail />} />
+        <Route path="/ChangePassword" element={<ChangePassword />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
+
+/*
 const App = () => {
   const [data, setData] = useState([]);
 
@@ -22,8 +54,7 @@ const App = () => {
     </div>
   );
 }
+*/
 
 
 
-
-export default App;
