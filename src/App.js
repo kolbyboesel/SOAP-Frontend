@@ -6,7 +6,7 @@ const App = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/weatherforecast') // Adjust based on your API route
+    axios.get('https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/weatherforecast') // Adjust based on your API route
       .then(response => setData(response.data))
       .catch(error => console.error(error));
   }, []);
@@ -22,6 +22,7 @@ const App = () => {
     </div>
   );
 }
+
 
 
 
