@@ -13,7 +13,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div> 
       <h1>Weather Forecast</h1>
       <ul>
         {data.map(item => (
