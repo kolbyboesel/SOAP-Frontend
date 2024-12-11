@@ -34,21 +34,18 @@ export const UserSettingsProvider = ({ children }) => {
     fetchUserSettings(); // Fetch user settings when the app loads
   }, [fetchUserSettings]);  // Add fetchUserSettings to the dependency array
 
-  const updateUserSettings = async (settings) => {
+  const updateUserSettings = (settings) => {
     try {
-      const response = await fetch('/api/usersettings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(settings),
-      });
-
-      if (response.ok) {
-        setUserSettings(settings); // Update settings in context
-      } else {
-        console.error('Failed to update user settings');
-      }
+      // Update user settings in the context (state)
+      setUserSettings(settings);
+      settings.isLoggedIn = true; 
+  
+      // Save the updated settings in localStorage
+      localStorage.setItem('userSettings', JSON.stringify(settings));
+      
+      console.log('User settings updated locally');
     } catch (error) {
-      console.error('Error occurred while updating user settings:', error);
+      console.error('Error occurred while updating user settings locally:', error);
     }
   };
 

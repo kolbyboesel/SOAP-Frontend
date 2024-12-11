@@ -28,6 +28,28 @@ const Navbar = () => {
     setIsNavOpen(false);
   };
 
+  const { updateUserSettings } = useContext(UserSettingsContext); 
+
+  // Default settings for user
+  const defaultSettings = {
+    userId: 'defaultUser',
+    firstName: 'John',
+    lastName: 'Doe',
+    isLoggedIn: false,
+    UserFavorites: [],
+    TeamFavorites: [],
+  };
+
+  const handleSignOut = () => {
+    // Reset user settings to default
+    updateUserSettings(defaultSettings);
+
+    // Clear the settings from localStorage
+    localStorage.removeItem('userSettings');
+
+    window.location.href = '/';  
+  };
+
   return (
     <nav className="site-navbar navbar navbar-expand-lg navbar-dark BackgroundNorm">
       <Link className="navbar-brand" to="/" style={{ position: 'relative', left: '15px', fontFamily: "'AvenirNext-DemiBoldItalic'" }}>
@@ -95,14 +117,9 @@ const Navbar = () => {
             {settings.isLoggedIn ? (
               <>
                 <li className="nav-item">
-                  <NavLink 
-                    className="nav-link" 
-                    to="/Signout" 
-                    onClick={closeNavbar} 
-                    activeClassName="active"
-                  >
-                    Sign Out
-                  </NavLink>
+                <button className="nav-link"  
+                onClick={handleSignOut}
+                activeClassName="active">Sign Out</button>
                 </li>
                 <li className="nav-item dropdown">
                   <NavLink 

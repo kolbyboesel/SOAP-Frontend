@@ -1,73 +1,98 @@
 import React, { useState, useContext } from 'react';
-import { UserSettingsContext } from '../../src/components/UserSettings';
+import { UserSettingsContext } from '../components/UserSettings'; // Import UserSettingsContext
+import { useNavigate } from 'react-router-dom'; // Make sure useNavigate is imported
+import axios from 'axios';
 
 const Login = () => {
-  const { updateUserSettings } = useContext(UserSettingsContext);
+  const { updateUserSettings } = useContext(UserSettingsContext); // Get updateUserSettings from context
+  const navigate = useNavigate(); // Initialize useNavigate
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
 
-  // State to manage form inputs
-  const [userId, setUserId] = useState('');
-  const [firstName, setfirstName] = useState('');
-  const [lastName, setlastName] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loginPressed, setLoginPressed] = useState(false);
+  const [error, setError] = useState('');
 
-  // Handle form submission
-  const handleLogin = async (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value,
+    });
+  };
+
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    setLoginPressed(true);
+    setError('');
 
-    // Set the user settings object
-    const newSettings = {
-      userId,
-      firstName,
-      lastName,
-      isLoggedIn: true, 
-    };
+    try {
+      // Use Axios to send login data to the backend
+      const response = await axios.post('https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/confirmLogin', loginData);
 
-    // Call updateUserSettings to send data to the backend
-    await updateUserSettings(newSettings);
-
-    // Set isLoggedIn to true after successful login
-    setIsLoggedIn(true);
+      if (response.status === 200) {
+        const userSettings = response.data;
+        updateUserSettings(userSettings); // Update the user settings in the context
+        navigate('/'); 
+      } else {
+        setError('Login failed: Invalid credentials');
+      }
+    } catch (error) {
+      setError('An error occurred while logging in. Please try again later.');
+    } finally {
+      setLoginPressed(false);
+    }
   };
 
   return (
-    <div>
-      {!isLoggedIn ? (
-        <form onSubmit={handleLogin}>
-          <h2>Login</h2>
-          <div>
-            <label>User ID:</label>
-            <input
-              type="text"
-              value={userId}
-              onChange={(e) => setUserId(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label>First Name:</label>
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setfirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label>Last Name:</label>
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setlastName(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit">Login and Update Settings</button>
-        </form>
-      ) : (
-        <div>
-          <h2>Welcome! You are logged in.</h2>
+    <div className="container" style={{ paddingTop: '15%' }}>
+      <form className="modal-content animate mobileScreen" onSubmit={handleLoginSubmit}>
+        <div className="container pt-5 h-auto">
+          <label className="left-align" htmlFor="uname">
+            <b>Email</b>
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter Username"
+            id="uname"
+            name="email"
+            value={loginData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <label className="left-align" htmlFor="psw">
+            <b>Password</b>
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter Password"
+            id="psw"
+            name="password"
+            value={loginData.password}
+            onChange={handleChange}
+            required
+          />
+
+          <button type="submit" style={{ borderRadius: '5px' }} disabled={loginPressed}>
+            {loginPressed ? 'Logging in...' : 'Login'}
+          </button>
+
+          {error && <div style={{ color: 'red' }}>{error}</div>}
         </div>
-      )}
+
+        <div className="container pb-5 login-cancel">
+          <a href="/" className="cancelbtn" style={{ borderRadius: '5px' }}>
+            Cancel
+          </a>
+          <span className="psw">
+            Forgot <a href="#">password?</a>
+          </span>
+        </div>
+      </form>
     </div>
   );
 };

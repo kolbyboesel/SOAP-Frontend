@@ -22,13 +22,12 @@ code {
   border-bottom: solid;
 }
 
-.center-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
-}
+
 
 .w3-center {
   text-align: center; /* Horizontally center the text */
 }
 
+.left-align {
+  text-align: left;
+}

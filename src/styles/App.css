@@ -1062,7 +1062,8 @@ button:hover {
 .modal-content {
   background-color: #fefefe;
   margin: 5px auto; /* 15% from the top and centered */
-  border: 1px solid #888;
+  border: 1px solid #888!important;
+  border-radius: 10px!important;
   width: 50%; /* Could be more or less, depending on screen size */
   height: fit-content!important;
 }

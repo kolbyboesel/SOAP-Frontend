@@ -3,7 +3,7 @@ import { UserSettingsContext } from '../../src/components/UserSettings';
 
 
 const FavoritesView = () => {
-  const { userSettings } = useContext(UserSettingsContext); // Access the current user settings
+  const { userSettings } = useContext(UserSettingsContext); 
   const [settings, setSettings] = useState({
     userId: '',
     firstName: '',
@@ -13,7 +13,7 @@ const FavoritesView = () => {
 
   useEffect(() => {
     if (userSettings) {
-      setSettings(userSettings); // Update local state with user settings from context
+      setSettings(userSettings); 
     }
   }, [userSettings]);
 
