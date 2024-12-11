@@ -107,6 +107,7 @@ const Navbar = () => {
              <>
              <li className="nav-item">
                <a 
+                href="/"
                  className="nav-link"  
                  onClick={handleSignOut}
                  activeClassName="active"
