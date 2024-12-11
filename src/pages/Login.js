@@ -89,7 +89,7 @@ const Login = () => {
             Cancel
           </a>
           <span className="psw">
-            Forgot <a href="#">password?</a>
+            Forgot <a href="/">password?</a>
           </span>
         </div>
       </form>
