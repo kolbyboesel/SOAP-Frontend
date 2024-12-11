@@ -11,10 +11,12 @@ import ChangeEmail from './pages/ChangeEmail';
 import ChangePassword from './pages/ChangePassword';
 import Signup from './pages/Signup';
 import Login from './pages/Login'
+import UnderConstructionModal from "./components/UnderConstructionModal";
 
 const App = () => {
   return (
     <Router>
+      <UnderConstructionModal />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
