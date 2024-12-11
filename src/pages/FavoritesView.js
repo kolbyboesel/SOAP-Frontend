@@ -1,8 +1,39 @@
-// src/pages/FavoritesView.js
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserSettingsContext } from '../../src/components/UserSettings';
+
 
 const FavoritesView = () => {
-  return <div>Favorites Page</div>;
+  const { userSettings } = useContext(UserSettingsContext); // Access the current user settings
+  const [settings, setSettings] = useState({
+    userId: '',
+    firstName: '',
+    lastName: '',
+    isLoggedIn: false,
+  });
+
+  useEffect(() => {
+    if (userSettings) {
+      setSettings(userSettings); // Update local state with user settings from context
+    }
+  }, [userSettings]);
+
+  return (
+    <div>
+      <h2>Favorites View</h2>
+      <div>
+        <strong>User ID:</strong> {settings.userId || 'N/A'}
+      </div>
+      <div>
+        <strong>First Name:</strong> {settings.firstName || 'N/A'}
+      </div>
+      <div>
+        <strong>Last Name:</strong> {settings.lastName || 'N/A'}
+      </div>
+      <div>
+        <strong>Logged In:</strong> {settings.isLoggedIn ? 'Yes' : 'No'}
+      </div>
+    </div>
+  );
 };
 
 export default FavoritesView;

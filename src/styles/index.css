@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-link.active {
+  font-weight: bold!important;
+  border-bottom: solid;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  font-weight: bold!important;
+  border-bottom: solid;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+}
+
+.w3-center {
+  text-align: center; /* Horizontally center the text */
+}
+

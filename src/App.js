@@ -1,17 +1,19 @@
 import './styles/App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'; 
-import Home from './pages/Home';
-import LiveScores from './pages/LiveScores';
-import FavoritesView from './pages/FavoritesView';
-import Contact from './pages/Contact';
-import Signout from './pages/Signout';
-import ChangeEmail from './pages/ChangeEmail';
-import ChangePassword from './pages/ChangePassword';
-import Signup from './pages/Signup';
-import Login from './pages/Login'
+import Home from '../src/pages/Home';
+import LiveScores from '../src/pages/LiveScores';
+import FavoritesView from '../src/pages/FavoritesView';
+import Contact from '../src/pages/Contact';
+import Signout from '../src/pages/Signout';
+import ChangeEmail from '../src/pages/ChangeEmail';
+import ChangePassword from '../src/pages/ChangePassword';
+import Signup from '../src/pages/Signup';
+import Login from '../src/pages/Login'
 import UnderConstructionModal from "./components/UnderConstructionModal";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 
 const App = () => {
   return (
