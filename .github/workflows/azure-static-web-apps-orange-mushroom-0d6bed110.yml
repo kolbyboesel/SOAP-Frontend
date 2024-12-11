@@ -22,10 +22,10 @@ jobs:
           lfs: false
 
       # Set Node.js version 16 (to avoid OpenSSL 3.0 issues)
-      - name: Set up Node.js version 16
+      - name: Set up Node.js version 18
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Explicitly using Node.js version 16
+          node-version: '18'  # Explicitly using Node.js version 16
 
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
