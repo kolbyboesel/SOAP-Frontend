@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserSettingsContext } from '../../src/components/UserSettings';
 
 
-const FavoritesView = () => {
+const Account = () => {
   const { userSettings } = useContext(UserSettingsContext); 
   const [settings, setSettings] = useState({
     userId: '',
@@ -19,7 +19,7 @@ const FavoritesView = () => {
 
   return (
     <div>
-      <h2>Favorites View</h2>
+      <h2>Account</h2>
       <div>
         <strong>User ID:</strong> {settings.userId || 'N/A'}
       </div>
@@ -36,4 +36,4 @@ const FavoritesView = () => {
   );
 };
 
-export default FavoritesView;
+export default Account;

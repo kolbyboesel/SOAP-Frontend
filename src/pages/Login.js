@@ -34,7 +34,7 @@ const Login = () => {
       if (response.status === 200) {
         const userSettings = response.data;
         updateUserSettings(userSettings); // Update the user settings in the context
-        navigate('/'); 
+        navigate('/Account'); 
       } else {
         setError('Login failed: Invalid credentials');
       }

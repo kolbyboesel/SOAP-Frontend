@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from '../src/pages/Home';
 import LiveScores from '../src/pages/LiveScores';
-import FavoritesView from '../src/pages/FavoritesView';
+import Account from '../src/pages/Account';
 import Contact from '../src/pages/Contact';
 import Signout from '../src/pages/Signout';
 import ChangeEmail from '../src/pages/ChangeEmail';
@@ -25,7 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/LiveScores" element={<LiveScores />} />
-          <Route path="/FavoritesView" element={<FavoritesView />} />
+          <Route path="/Account" element={<Account />} />
           <Route path="/ContactModal" element={<Contact />} />
           <Route path="/Signout" element={<Signout />} />
           <Route path="/ChangeEmail" element={<ChangeEmail />} />

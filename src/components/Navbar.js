@@ -90,17 +90,6 @@ const Navbar = () => {
                 Live Scores
               </NavLink>
             </li>
-            <li id="fav-item" className="nav-item">
-              <NavLink 
-                id="fav-link" 
-                className="nav-link" 
-                to="/FavoritesView" 
-                onClick={closeNavbar} 
-                activeClassName="active"  // Add active class when on this route
-              >
-                Favorites
-              </NavLink>
-            </li>
             <li className="nav-item">
               <NavLink 
                 className="nav-link" 
@@ -115,52 +104,28 @@ const Navbar = () => {
 
           <div className="right-container">
             {settings.isLoggedIn ? (
-              <>
-                <li className="nav-item">
-                <button className="nav-link"  
-                onClick={handleSignOut}
-                activeClassName="active">Sign Out</button>
-                </li>
-                <li className="nav-item dropdown">
-                  <NavLink 
-                    className="nav-link dropdown-toggle" 
-                    to="#" 
-                    id="navbarDropdownMenuLink"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    onClick={closeNavbar}
-                  >
-                    Account
-                  </NavLink>
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <NavLink 
-                      className="dropdown-item" 
-                      to="/ChangeEmail" 
-                      onClick={closeNavbar} 
-                      activeClassName="active"
-                    >
-                      Change Email
-                    </NavLink>
-                    <NavLink 
-                      className="dropdown-item" 
-                      to="/ChangePassword" 
-                      onClick={closeNavbar} 
-                      activeClassName="active"
-                    >
-                      Change Password
-                    </NavLink>
-                    <NavLink 
-                      className="dropdown-item" 
-                      to="#" 
-                      onClick={closeNavbar} 
-                      activeClassName="active"
-                    >
-                      Delete Account
-                    </NavLink>
-                  </div>
-                </li>
-              </>
+             <>
+             <li className="nav-item">
+               <a 
+                 className="nav-link"  
+                 onClick={handleSignOut}
+                 activeClassName="active"
+               >
+                 Sign Out
+               </a>
+             </li>
+           
+             <li className="nav-item">
+               <NavLink 
+                 className="nav-link" 
+                 to="/Account" 
+                 onClick={closeNavbar} 
+                 activeClassName="active"  // Add active class when on this route
+               >
+                 Account
+               </NavLink>
+             </li>
+           </>
             ) : (
               <>
                 <li className="nav-item">
