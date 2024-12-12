@@ -7,12 +7,12 @@ const Signup = () => {
   const { updateUserSettings } = useContext(UserSettingsContext);
   const navigate = useNavigate();
   const [signupData, setSignupData] = useState({
-    email: '',
-    repeatEmail: '',
-    firstName: '',
-    lastName: '',
-    password: '',
-    repeatPassword: '',
+    Email: '',
+    RepeatEmail: '',
+    FirstName: '',
+    LastName: '',
+    Password: '',
+    RepeatPassword: '',
   });
 
   const [signupPressed, setSignupPressed] = useState(false);
@@ -31,13 +31,13 @@ const Signup = () => {
     setSignupPressed(true);
     setError('');
 
-    if (signupData.email !== signupData.repeatEmail) {
+    if (signupData.Email !== signupData.RepeatEmail) {
       setError('Emails do not match');
       setSignupPressed(false);
       return;
     }
 
-    if (signupData.password !== signupData.repeatPassword) {
+    if (signupData.Password !== signupData.RepeatPassword) {
       setError('Passwords do not match');
       setSignupPressed(false);
       return;
@@ -64,103 +64,103 @@ const Signup = () => {
     <div className="container" style={{ paddingTop: '5%' }}>
       <form className="modal-content animate mobileScreen" onSubmit={handleSignupSubmit}>
         <div className="container pt-5 h-auto">
-          <label className="left-align" htmlFor="email">
+          <label className="left-align" htmlFor="Email">
             <b>Email</b>
           </label>
           <input
             type="email"
             className="form-control"
             placeholder="Enter Email"
-            id="email"
-            name="email"
-            value={signupData.email}
+            id="Email"
+            name="Email"
+            value={signupData.Email}
             onChange={handleChange}
             required
           />
 
-          <label className="left-align" htmlFor="repeatEmail">
+          <label className="left-align" htmlFor="RepeatEmail">
             <b>Repeat Email</b>
           </label>
           <input
             type="email"
             className="form-control"
             placeholder="Repeat Email"
-            id="repeatEmail"
-            name="repeatEmail"
-            value={signupData.repeatEmail}
+            id="RepeatEmail"
+            name="RepeatEmail"
+            value={signupData.RepeatEmail}
             onChange={handleChange}
             required
           />
 
-          <label className="left-align" htmlFor="firstName">
+          <label className="left-align" htmlFor="FirstName">
             <b>First Name</b>
           </label>
           <input
             type="text"
             className="form-control"
             placeholder="Enter First Name"
-            id="firstName"
-            name="firstName"
-            value={signupData.firstName}
+            id="FirstName"
+            name="FirstName"
+            value={signupData.FirstName}
             onChange={handleChange}
             required
           />
 
-          <label className="left-align" htmlFor="lastName">
+          <label className="left-align" htmlFor="LastName">
             <b>Last Name</b>
           </label>
           <input
             type="text"
             className="form-control"
             placeholder="Enter Last Name"
-            id="lastName"
-            name="lastName"
-            value={signupData.lastName}
+            id="LastName"
+            name="LastName"
+            value={signupData.LastName}
             onChange={handleChange}
             required
           />
 
-          <label className="left-align" htmlFor="password">
+          <label className="left-align" htmlFor="Password">
             <b>Password</b>
           </label>
           <input
             type="password"
             className="form-control"
             placeholder="Enter Password"
-            id="password"
-            name="password"
-            value={signupData.password}
+            id="Password"
+            name="Password"
+            value={signupData.Password}
             onChange={handleChange}
             required
           />
 
-          <label className="left-align" htmlFor="repeatPassword">
+          <label className="left-align" htmlFor="RepeatPassword">
             <b>Repeat Password</b>
           </label>
           <input
             type="password"
             className="form-control"
             placeholder="Repeat Password"
-            id="repeatPassword"
-            name="repeatPassword"
-            value={signupData.repeatPassword}
+            id="RepeatPassword"
+            name="RepeatPassword"
+            value={signupData.RepeatPassword}
             onChange={handleChange}
             required
           />
 
-          <button type="submit" style={{ borderRadius: '5px' }} disabled={signupPressed}>
+          <button className="confirm-btn" type="submit" style={{ borderRadius: '5px' }} disabled={signupPressed}>
             {signupPressed ? 'Signing up...' : 'Signup'}
           </button>
 
           {error && <div style={{ color: 'red' }}>{error}</div>}
         </div>
 
-        <div className="container pb-5 login-cancel">
+        <div className="container-fluid pb-5 pt-3 login-cancel">
           <a href="/" className="cancelbtn" style={{ borderRadius: '5px' }}>
             Cancel
           </a>
-          <span className="psw">
-            Already have an account? <a href="/login">Login</a>
+          <span className="psw right-align">
+            Already have an account? <a href="/Login">Login</a>
           </span>
         </div>
       </form>

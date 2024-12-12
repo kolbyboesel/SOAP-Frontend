@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom'; // Import NavLink for active class functionality
 import { UserSettingsContext } from './UserSettings';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const { userSettings } = useContext(UserSettingsContext);
@@ -49,7 +50,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="site-navbar navbar navbar-expand-lg navbar-dark BackgroundNorm">
+    <nav className="site-navbar navbar navbar-expand-lg navbar-dark navmenu">
       <Link className="navbar-brand" to="/" style={{ position: 'relative', left: '15px', fontFamily: "'AvenirNext-DemiBoldItalic'" }}>
         SOAP
       </Link>

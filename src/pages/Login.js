@@ -33,8 +33,27 @@ const Login = () => {
 
       if (response.status === 200) {
         const userSettings = response.data;
-        updateUserSettings(userSettings); // Update the user settings in the context
-        navigate('/Account');
+        updateUserSettings(userSettings);
+
+        const favoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userLeagueFavorites/${loginData.email}`);
+
+        if (favoritesResponse.status === 200) {
+          const userFavorites = favoritesResponse.data;
+          console.log('User Favorites:', userFavorites);
+
+          const updatedUserSettings = {
+            ...userSettings,
+            LeagueFavorites: userFavorites,
+          };
+
+          updateUserSettings(updatedUserSettings);
+
+          localStorage.setItem('userSettings', JSON.stringify(updatedUserSettings));
+
+          navigate('/Account');
+        } else {
+          setError('Error fetching user favorites');
+        }
       } else {
         setError('Login failed: Invalid credentials');
       }
@@ -77,20 +96,17 @@ const Login = () => {
             required
           />
 
-          <button type="submit" style={{ borderRadius: '5px' }} disabled={loginPressed}>
+          <button className="confirm-btn" type="submit" style={{ borderRadius: '5px' }} disabled={loginPressed}>
             {loginPressed ? 'Logging in...' : 'Login'}
           </button>
 
           {error && <div style={{ color: 'red' }}>{error}</div>}
         </div>
 
-        <div className="container pb-5 login-cancel">
+        <div className="container pb-5 pt-3 login-cancel">
           <a href="/" className="cancelbtn" style={{ borderRadius: '5px' }}>
             Cancel
           </a>
-          <span className="psw">
-            Forgot <a href="/">password?</a>
-          </span>
         </div>
       </form>
     </div>

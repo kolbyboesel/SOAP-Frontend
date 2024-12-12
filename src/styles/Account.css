@@ -1,0 +1,81 @@
+.account-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .account-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .account-header p {
+    color: #777;
+  }
+  
+  .account-details {
+    margin-bottom: 30px;
+  }
+  
+  .account-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.1rem;
+  }
+  
+  .account-item strong {
+    font-weight: bold;
+  }
+  
+  .account-item span {
+    color: #333;
+  }
+  
+  .account-footer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .account-btn {
+    padding: 10px 20px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .account-btn:hover {
+    background-color: #e03e3e;
+  }
+
+  .account-favorites {
+    margin-top: 20px;
+  }
+  
+  .account-favorites ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .account-favorites li {
+    padding: 5px 0;
+    font-size: 1.1rem;
+  }
+  
+  .account-favorites h3 {
+    font-size: 1.5rem;
+    color: #333;
+  }

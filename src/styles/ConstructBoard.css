@@ -1,0 +1,53 @@
+.headerElement {
+    font-size: 1.5vh;
+}
+
+.scoreboard {
+    width: 100%;
+    border-radius: 10px;
+    height: 190px;
+    background-color: white;
+    box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .header {
+    align-items: center;
+    border-bottom-style: solid;
+    border-width: 1px;
+    color: black;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+}
+
+.team .score {
+    text-align: right;
+}
+
+.win .score {
+    font-weight: bold;
+    color: black;
+}
+
+.win .team {
+    color: black;
+    font-weight: bold;
+}
+
+.periodHeader {
+    align-items: center;
+    border-bottom-style: solid;
+    border-width: 1px;
+    color: black;
+}
+
+.periodScore {
+    text-align: right;
+    padding-right: 25px;
+}

@@ -1,0 +1,71 @@
+.site-navbar {
+    margin-bottom: 0;
+    z-index: 1999;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    display: flex;
+    color: white;
+  }
+  
+  .center-container {
+    display: flex;
+    position: relative;
+    margin: auto;
+  }
+  
+  .right-container {
+    display: flex;
+    position: absolute;
+    right: 10px;
+  }
+
+  .navmenu {
+    background-color: #f44336;
+    width: 100%;
+  }
+  
+  .nav-item {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .nav-item:hover {
+    border-color: white;
+    border-bottom: solid;
+  }
+  
+  .nav-link:hover {
+    color: white !important;
+  }
+  
+  .nav-link.active {
+    font-weight: bold !important;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .page {
+      height: calc(100vh - 69px);
+      top: 69px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-nav {
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .no-gutters-sm {
+      margin-right: 0;
+      margin-left: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .navbar-toggler {
+    margin-right: 15px !important;
+    width: 55px;
+}

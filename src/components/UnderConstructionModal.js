@@ -23,7 +23,7 @@ const UnderConstructionModal = () => {
         <div className="modal-overlay">
             <div className="modal-content">
                 <h2>Under Construction</h2>
-                <p>Please note there may be issues or missing features, this site is currently being migrated to REACT</p>
+                <p>Please note there may be issues or missing features, this site is currently being migrated to React</p>
                 <button onClick={closeModal}>Close</button>
             </div>
         </div>
