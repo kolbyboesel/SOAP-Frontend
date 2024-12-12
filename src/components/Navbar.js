@@ -89,16 +89,6 @@ const Navbar = () => {
                 Live Scores
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                to="/ContactModal"
-                onClick={closeNavbar}
-                activeClassName="active"  // Add active class when on this route
-              >
-                Contact
-              </NavLink>
-            </li>
           </div>
 
           <div className="right-container">
