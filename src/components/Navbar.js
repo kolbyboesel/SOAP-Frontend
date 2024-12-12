@@ -28,7 +28,7 @@ const Navbar = () => {
     setIsNavOpen(false);
   };
 
-  const { updateUserSettings } = useContext(UserSettingsContext); 
+  const { updateUserSettings } = useContext(UserSettingsContext);
 
   // Default settings for user
   const defaultSettings = {
@@ -47,7 +47,7 @@ const Navbar = () => {
     // Clear the settings from localStorage
     localStorage.removeItem('userSettings');
 
-    window.location.href = '/';  
+    window.location.href = '/';
   };
 
   return (
@@ -69,32 +69,32 @@ const Navbar = () => {
         <ul className="navbar-nav">
           <div className="center-container">
             <li id="home-item" className="nav-item">
-              <NavLink 
-                id="home-link" 
-                className="nav-link" 
-                to="/" 
-                onClick={closeNavbar} 
+              <NavLink
+                id="home-link"
+                className="nav-link"
+                to="/"
+                onClick={closeNavbar}
                 activeClassName="active"  // Add active class when on this route
               >
                 Home
               </NavLink>
             </li>
             <li id="live-item" className="nav-item">
-              <NavLink 
-                id="live-link" 
-                className="nav-link" 
-                to="/LiveScores" 
-                onClick={closeNavbar} 
+              <NavLink
+                id="live-link"
+                className="nav-link"
+                to="/LiveScores"
+                onClick={closeNavbar}
                 activeClassName="active"  // Add active class when on this route
               >
                 Live Scores
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink 
-                className="nav-link" 
-                to="/ContactModal" 
-                onClick={closeNavbar} 
+              <NavLink
+                className="nav-link"
+                to="/ContactModal"
+                onClick={closeNavbar}
                 activeClassName="active"  // Add active class when on this route
               >
                 Contact
@@ -104,46 +104,47 @@ const Navbar = () => {
 
           <div className="right-container">
             {settings.isLoggedIn ? (
-             <>
-             <li className="nav-item">
-               <a 
-                href="/"
-                 className="nav-link"  
-                 onClick={handleSignOut}
-                 activeClassName="active"
-               >
-                 Sign Out
-               </a>
-             </li>
-           
-             <li className="nav-item">
-               <NavLink 
-                 className="nav-link" 
-                 to="/Account" 
-                 onClick={closeNavbar} 
-                 activeClassName="active"  // Add active class when on this route
-               >
-                 Account
-               </NavLink>
-             </li>
-           </>
+              <>
+                <li className="nav-item">
+                  <a
+                    href="/"
+                    className="nav-link"
+                    onClick={handleSignOut}
+                    activeClassName="active"
+                  >
+                    Sign Out
+                  </a>
+                </li>
+
+
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    to="/Account"
+                    onClick={closeNavbar}
+                    activeClassName="active"  // Add active class when on this route
+                  >
+                    Account
+                  </NavLink>
+                </li>
+              </>
             ) : (
               <>
                 <li className="nav-item">
-                  <NavLink 
-                    className="nav-link" 
-                    to="/Signup" 
-                    onClick={closeNavbar} 
+                  <NavLink
+                    className="nav-link"
+                    to="/Signup"
+                    onClick={closeNavbar}
                     activeClassName="active"
                   >
                     Sign Up
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink 
-                    className="nav-link" 
-                    to="/Login" 
-                    onClick={closeNavbar} 
+                  <NavLink
+                    className="nav-link"
+                    to="/Login"
+                    onClick={closeNavbar}
                     activeClassName="active"
                   >
                     Log In
