@@ -52,20 +52,30 @@ const Login = () => {
 
           navigate('/Account');
         } else {
-          setError('Error fetching user favorites');
+          const updatedUserSettings = {
+            ...userSettings,
+            LeagueFavorites: [],
+          };
+          updateUserSettings(updatedUserSettings);
+          localStorage.setItem('userSettings', JSON.stringify(updatedUserSettings));
+          navigate('/Account');
         }
       } else {
-        setError('Login failed: Invalid credentials');
+        setError(response.data.message || 'Login failed: Invalid credentials');
       }
     } catch (error) {
-      setError('An error occurred while logging in. Please try again later.');
+      if (error.response && error.response.data) {
+        setError(error.response.data.message || 'An error occurred while logging in. Please try again later.');
+      } else {
+        setError('An error occurred while logging in. Please try again later.');
+      }
     } finally {
       setLoginPressed(false);
     }
   };
 
   return (
-    <div className="container" style={{ paddingTop: '5%' }}>
+    <div className="container">
       <form className="modal-content animate mobileScreen" onSubmit={handleLoginSubmit}>
         <div className="container pt-5 h-auto">
           <label className="left-align" htmlFor="uname">
