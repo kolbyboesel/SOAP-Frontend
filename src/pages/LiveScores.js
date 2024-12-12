@@ -32,7 +32,7 @@ const LiveScores = () => {
 
   return (
     <div>
-      <div className="no-gutters align-flex-start">
+      <div className="no-gutters align-flex-start" id="top-scores">
         {/* Navigation for different sports */}
         <div className="no-gutters responsiveScrollContainer">
           <div className="col scrollmenu mobileScroll">
@@ -72,7 +72,7 @@ const LiveScores = () => {
         {/* Loading state */}
         {isLoading && <div className="loading liveLoading">Loading&#8230;</div>}
 
-        <div className="container scroll-view pt-3">
+        <div className="container scroll-view pt-3 pb-5">
           <div className="v-stack">
             {liveDataPage.length !== 0 ? (
               liveDataPage.map((data, index) => (
@@ -87,6 +87,11 @@ const LiveScores = () => {
             )}
           </div>
         </div>
+        <footer className="text-center footer-style">
+          <a href="#top-scores" className="scroll-to-top-btn">
+            <i className="fas fa-arrow-up"></i> To the top
+          </a>
+        </footer>
       </div>
     </div>
   );

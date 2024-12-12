@@ -1,0 +1,84 @@
+/* Home.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .heading {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    width: 100%;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  .infoSection {
+    margin-bottom: 50px;
+    padding: 30px;
+    width: 100vw;
+  }
+  
+  .bg-accent {
+    background-color: #f44336; 
+  }
+  
+  .infoContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .infoImage {
+    width: 100%;
+    max-width: 90%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .infoImage:hover {
+    transform: scale(1.05);
+  }
+  
+  .text-center p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .footer-style {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+  }
+  
+  .scroll-to-top-btn {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .scroll-to-top-btn:hover {
+    color: #f44336;
+  }
+  
+  @media (max-width: 767px) {
+    .infoImage {
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .heading {
+      font-size: 2rem;
+    }
+  }
