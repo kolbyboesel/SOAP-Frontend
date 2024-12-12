@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserSettingsContext } from '../UserSettingsContext'; // Import the context
+import { UserSettingsContext } from '../components/UserSettings'; // Import the context
 
 const Signout = () => {
   const { updateUserSettings } = useContext(UserSettingsContext); // Get updateUserSettings function from context
