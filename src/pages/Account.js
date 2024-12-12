@@ -55,7 +55,7 @@ const Account = () => {
   };
 
   return (
-    <div className="container pt-3">
+    <div className="container pt-3 pb-3">
       <div className="account-header">
         <h2>Account Settings</h2>
         <p>View and update your account details</p>
