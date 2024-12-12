@@ -43,6 +43,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "ansi-html-community": "^0.0.8",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "webpack-sources": "^3.2.3"
   }
 }

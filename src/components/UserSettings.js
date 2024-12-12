@@ -7,7 +7,7 @@ export const UserSettingsProvider = ({ children }) => {
 
   // Memoize defaultSettings to avoid unnecessary re-creations
   const defaultSettings = useMemo(() => ({
-    userId: 'defaultUser',
+    loginID: 'defaultUser@gmail.com',
     firstName: 'John',
     lastName: 'Doe',
     isLoggedIn: false,
@@ -38,11 +38,11 @@ export const UserSettingsProvider = ({ children }) => {
     try {
       // Update user settings in the context (state)
       setUserSettings(settings);
-      settings.isLoggedIn = true; 
-  
+      settings.isLoggedIn = true;
+
       // Save the updated settings in localStorage
       localStorage.setItem('userSettings', JSON.stringify(settings));
-      
+
       console.log('User settings updated locally');
     } catch (error) {
       console.error('Error occurred while updating user settings locally:', error);

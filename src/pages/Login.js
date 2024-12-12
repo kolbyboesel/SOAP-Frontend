@@ -34,7 +34,7 @@ const Login = () => {
       if (response.status === 200) {
         const userSettings = response.data;
         updateUserSettings(userSettings); // Update the user settings in the context
-        navigate('/Account'); 
+        navigate('/Account');
       } else {
         setError('Login failed: Invalid credentials');
       }
@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container" style={{ paddingTop: '15%' }}>
+    <div className="container" style={{ paddingTop: '5%' }}>
       <form className="modal-content animate mobileScreen" onSubmit={handleLoginSubmit}>
         <div className="container pt-5 h-auto">
           <label className="left-align" htmlFor="uname">

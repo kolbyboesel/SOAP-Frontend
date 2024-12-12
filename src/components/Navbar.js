@@ -32,12 +32,10 @@ const Navbar = () => {
 
   // Default settings for user
   const defaultSettings = {
-    userId: 'defaultUser',
+    loginID: 'defaultUser@gmail.com',
     firstName: 'John',
     lastName: 'Doe',
-    isLoggedIn: false,
-    UserFavorites: [],
-    TeamFavorites: [],
+    isLoggedIn: false
   };
 
   const handleSignOut = () => {

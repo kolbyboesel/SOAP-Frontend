@@ -3,9 +3,9 @@ import { UserSettingsContext } from '../../src/components/UserSettings';
 
 
 const Account = () => {
-  const { userSettings } = useContext(UserSettingsContext); 
+  const { userSettings } = useContext(UserSettingsContext);
   const [settings, setSettings] = useState({
-    userId: '',
+    loginID: '',
     firstName: '',
     lastName: '',
     isLoggedIn: false,
@@ -13,7 +13,7 @@ const Account = () => {
 
   useEffect(() => {
     if (userSettings) {
-      setSettings(userSettings); 
+      setSettings(userSettings);
     }
   }, [userSettings]);
 
@@ -21,7 +21,7 @@ const Account = () => {
     <div>
       <h2>Account</h2>
       <div>
-        <strong>User ID:</strong> {settings.userId || 'N/A'}
+        <strong>Email:</strong> {settings.loginID || 'N/A'}
       </div>
       <div>
         <strong>First Name:</strong> {settings.firstName || 'N/A'}
