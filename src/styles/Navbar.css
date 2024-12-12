@@ -8,16 +8,18 @@
     color: white;
   }
   
-  .center-container {
-    display: flex;
-    position: relative;
-    margin: auto;
-  }
-  
-  .right-container {
-    display: flex;
-    position: absolute;
-    right: 10px;
+  @media (min-width: 992px) {
+    .center-container {
+        display: flex;
+        position: relative;
+        margin: auto;
+    }
+
+    .right-container {
+        display: flex;
+        position: absolute;
+        right: 10px;
+    }
   }
 
   .navmenu {
@@ -41,6 +43,12 @@
   
   .nav-link.active {
     font-weight: bold !important;
+  }
+  @media screen and (max-width: 992px) {
+  
+    .nav-link {
+        text-align: center;
+    }
   }
   
   @media screen and (max-width: 992px) {

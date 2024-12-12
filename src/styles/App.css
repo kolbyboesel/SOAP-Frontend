@@ -38,6 +38,13 @@ a {
   padding-bottom: 40px;
 }
 
+@media screen and (max-width: 992px) {
+  .page {
+      height: calc(100vh - 69px);
+      top: 69px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .InfoElement {
       display: inline-block;
@@ -96,13 +103,6 @@ a {
 .img-home-info {
   max-width: 100%;
   width: fit-content;
-}
-
-
-.center-container {
-  display: flex;
-  position: relative;
-  margin: auto;
 }
 
 .center-home-container {
