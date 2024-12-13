@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom'; // Import NavLink for active class functionality
+import { Link, NavLink } from 'react-router-dom';
 import { UserSettingsContext } from './UserSettings';
 import '../styles/Navbar.css';
 
@@ -24,14 +24,12 @@ const Navbar = () => {
     setIsNavOpen(!isNavOpen);
   };
 
-  // Collapse the navbar when a nav item is clicked
   const closeNavbar = () => {
     setIsNavOpen(false);
   };
 
   const { updateUserSettings } = useContext(UserSettingsContext);
 
-  // Default settings for user
   const defaultSettings = {
     loginID: 'defaultUser@gmail.com',
     firstName: 'John',
@@ -40,10 +38,8 @@ const Navbar = () => {
   };
 
   const handleSignOut = () => {
-    // Reset user settings to default
     updateUserSettings(defaultSettings);
 
-    // Clear the settings from localStorage
     localStorage.removeItem('userSettings');
 
     window.location.href = '/';
@@ -57,7 +53,7 @@ const Navbar = () => {
       <button
         className="navbar-toggler"
         type="button"
-        onClick={toggleNavbar}  // Toggle the state when clicked
+        onClick={toggleNavbar}
         aria-controls="navbarNavDropdown"
         aria-expanded={isNavOpen ? 'true' : 'false'}
         aria-label="Toggle navigation"
@@ -73,7 +69,7 @@ const Navbar = () => {
                 className="nav-link"
                 to="/"
                 onClick={closeNavbar}
-                activeClassName="active"  // Add active class when on this route
+                activeClassName="active"
               >
                 Home
               </NavLink>
@@ -84,7 +80,7 @@ const Navbar = () => {
                 className="nav-link"
                 to="/LiveScores"
                 onClick={closeNavbar}
-                activeClassName="active"  // Add active class when on this route
+                activeClassName="active"
               >
                 Live Scores
               </NavLink>
@@ -95,7 +91,7 @@ const Navbar = () => {
                 className="nav-link"
                 to="/Favorites"
                 onClick={closeNavbar}
-                activeClassName="active"  // Add active class when on this route
+                activeClassName="active"
               >
                 Favorites
               </NavLink>
@@ -122,7 +118,7 @@ const Navbar = () => {
                     className="nav-link"
                     to="/Account"
                     onClick={closeNavbar}
-                    activeClassName="active"  // Add active class when on this route
+                    activeClassName="active"
                   >
                     Account
                   </NavLink>

@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { UserSettingsContext } from '../components/UserSettings'; // Import UserSettingsContext
-import { useNavigate } from 'react-router-dom'; // Make sure useNavigate is imported
+import { UserSettingsContext } from '../components/UserSettings';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
-  const { updateUserSettings } = useContext(UserSettingsContext); // Get updateUserSettings from context
-  const navigate = useNavigate(); // Initialize useNavigate
+  const { updateUserSettings } = useContext(UserSettingsContext);
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
@@ -28,14 +28,12 @@ const Login = () => {
     setError('');
 
     try {
-      // Use Axios to send login data to the backend
       const response = await axios.post('https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/confirmLogin', loginData);
 
       if (response.status === 200) {
         const userSettings = response.data;
         updateUserSettings(userSettings);
 
-        // Fetch user league favorites by email
         const leagueFavoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userLeagueFavorites/${loginData.email}`);
 
         let leagueFavorites = [];
@@ -44,7 +42,6 @@ const Login = () => {
           console.log('User League Favorites:', leagueFavorites);
         }
 
-        // Fetch user team favorites by email (similar to league favorites)
         const teamFavoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userTeamFavorites/${loginData.email}`);
 
         let teamFavorites = [];

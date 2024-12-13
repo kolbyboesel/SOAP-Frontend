@@ -4,17 +4,15 @@ import '../styles/UnderConstructionModal.css';
 const UnderConstructionModal = () => {
     const [isVisible, setIsVisible] = useState(true);
 
-    // Close the modal after a certain time or when the user clicks "Close"
     const closeModal = () => {
         setIsVisible(false);
     };
 
-    // Optional: Automatically close the modal after a set time (e.g., 5 seconds)
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false);
-        }, 10000); // Close after 5 seconds
-        return () => clearTimeout(timer); // Clean up on unmount
+        }, 10000); // Close after 10 seconds
+        return () => clearTimeout(timer);
     }, []);
 
     if (!isVisible) return null;

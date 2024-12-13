@@ -7,14 +7,13 @@ const LiveScores = () => {
   const [liveDataPage, setLiveDataPage] = useState([]);
   const [liveScoreMessage, setLiveScoreMessage] = useState('Click One of the Sports Above to View Current Live Scores');
 
-  // Function to fetch live scores based on the sport
   const fetchLiveScores = async (seasonName) => {
     setIsLoading(true);
     try {
       const response = await axios.get(
         `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/live-scores/${seasonName}`
       );
-      setLiveDataPage(response.data); // Update the live data page with the new data
+      setLiveDataPage(response.data);
       if (response.data.length === 0) {
         setLiveScoreMessage('Currently No Live Scores Available For The Selected Sport');
       }
@@ -25,15 +24,13 @@ const LiveScores = () => {
     }
   };
 
-  // Handle clicking a sport to load its live scores
   const handleSportClick = (sport) => {
-    fetchLiveScores(sport); // Fetch live scores based on selected sport
+    fetchLiveScores(sport);
   };
 
   return (
     <div>
       <div className="no-gutters align-flex-start" id="top-scores">
-        {/* Navigation for different sports */}
         <div className="no-gutters responsiveScrollContainer">
           <div className="col scrollmenu mobileScroll">
             <button

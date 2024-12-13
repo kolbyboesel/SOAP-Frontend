@@ -1,19 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserSettingsContext } from '../../src/components/UserSettings';
-import { useNavigate } from 'react-router-dom'; // Correctly import useNavigate
-import axios from 'axios'; // Ensure axios is also imported
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/Account.css';
 
 const Account = () => {
   const [isLeaguesExpanded, setIsLeaguesExpanded] = useState(false);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState(false);
 
-  // Function to toggle the visibility of leagues
   const handleLeaguesToggle = () => {
     setIsLeaguesExpanded(!isLeaguesExpanded);
   };
 
-  // Function to toggle the visibility of teams
   const handleTeamsToggle = () => {
     setIsTeamsExpanded(!isTeamsExpanded);
   };
@@ -50,7 +48,6 @@ const Account = () => {
 
     if (confirmDelete) {
       try {
-        // Use Axios to send DELETE request to the backend to delete the user
         const response = await axios.delete(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/delete/${settings.loginID}`);
 
         if (response.status === 200) {

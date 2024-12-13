@@ -5,42 +5,38 @@ export const UserSettingsContext = createContext();
 export const UserSettingsProvider = ({ children }) => {
   const [userSettings, setUserSettings] = useState(null);
 
-  // Memoize defaultSettings to avoid unnecessary re-creations
   const defaultSettings = useMemo(() => ({
     loginID: 'defaultUser@gmail.com',
     firstName: 'John',
     lastName: 'Doe',
     isLoggedIn: false,
-  }), []);  // Empty array ensures this object is memoized only once
+  }), []);
 
-  // Wrap fetchUserSettings in useCallback to ensure it's stable
   const fetchUserSettings = useCallback(async () => {
     try {
       const response = await fetch('/api/usersettings');
       if (response.ok) {
         const settings = await response.json();
-        setUserSettings(settings); // Set the fetched settings
+        setUserSettings(settings);
       } else {
         console.error('Failed to fetch user settings, using default settings.');
-        setUserSettings(defaultSettings); // Fallback to default settings if fetch fails
+        setUserSettings(defaultSettings);
       }
     } catch (error) {
       console.error('Error occurred while fetching user settings:', error);
-      setUserSettings(defaultSettings); // Fallback to default settings if there's an error
+      setUserSettings(defaultSettings);
     }
-  }, [defaultSettings]);  // Include defaultSettings in the dependencies of useCallback
+  }, [defaultSettings]);
 
   useEffect(() => {
-    fetchUserSettings(); // Fetch user settings when the app loads
-  }, [fetchUserSettings]);  // Add fetchUserSettings to the dependency array
+    fetchUserSettings();
+  }, [fetchUserSettings]);
 
   const updateUserSettings = (settings) => {
     try {
-      // Update user settings in the context (state)
       setUserSettings(settings);
       settings.isLoggedIn = true;
 
-      // Save the updated settings in localStorage
       localStorage.setItem('userSettings', JSON.stringify(settings));
 
       console.log('User settings updated locally');
@@ -49,7 +45,6 @@ export const UserSettingsProvider = ({ children }) => {
     }
   };
 
-  // If userSettings is null, we return default settings while the fetch is ongoing.
   const settingsToProvide = userSettings || defaultSettings;
 
   return (
