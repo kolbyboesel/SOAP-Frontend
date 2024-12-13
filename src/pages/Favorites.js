@@ -64,7 +64,7 @@ const Favorites = () => {
     // Function to select events, prioritizing live past events and filling with future events
     const selectEvents = (events) => {
         const pastEvents = events.filter(event => event.status.type === 'inprogress');  // Assuming 'live' is the status for live events
-        const nextEvents = events.filter(event => event.status.type !== 'inprogress');
+        const nextEvents = events.filter(event => event.status.type === 'notstarted');
 
         const selectedEvents = [];
 
