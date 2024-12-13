@@ -93,9 +93,18 @@ const Favorites = () => {
                                         <div key={index} className="league-container">
                                             <h4>{tournamentName}</h4>
                                             <div className="events">
-                                                {selectedEvents.map((event, i) => (
-                                                    <ConstructBoard key={i} EventData={event} />
-                                                ))}
+                                                {selectedEvents.map((event, i) => {
+                                                    const isLastEvent = i === selectedEvents.length - 1;
+
+                                                    return (
+                                                        <div
+                                                            key={i}
+                                                            className={`event-board ${isLastEvent ? '' : 'bottom-border'}`}
+                                                        >
+                                                            <ConstructBoard EventData={event} />
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
                                         </div>
                                     );

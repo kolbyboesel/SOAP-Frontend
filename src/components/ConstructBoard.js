@@ -1,37 +1,39 @@
-import React from 'react';
 import '../styles/ConstructBoard.css';
+import ScoreFuture from './ScoreFuture';
+import ScoreLive from './ScoreLive';
+import ScoreboardInfo from './ScoreboardInfo';
 
 const ConstructBoard = ({ EventData }) => {
-    const timestampInMilliseconds = EventData.startTimestamp * 1000;
-    const date = new Date(timestampInMilliseconds);
 
-    const dateString = date.toLocaleString([], {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-    });
+    const formatDate = (startTimestamp) => {
+        const date = new Date(startTimestamp * 1000);
+        return {
+            dayMonth: date.toLocaleString([], { month: 'numeric', day: 'numeric' }),
+            time: date.toLocaleString([], { hour: '2-digit', minute: '2-digit', hour12: true })
+        };
+    };
+
+    const { dayMonth, time } = formatDate(EventData.startTimestamp);
+
 
     return (
         <div className="col-12 center-elements pl-3">
-            <div className="container scoreboard hover-cursor">
-                <div className="row header">
-                    <div className="col-auto headerElement">{dateString}</div>
-                    <div className="col headerElement" style={{ textAlign: 'right' }}>
-                        {EventData.status.description}
-                    </div>
-                </div>
-
-                <div className="row team lose" style={{ borderLeft: 'none', borderTop: 'none', borderRight: 'none' }}>
-                    <div className="col-4 team">{EventData.awayTeam.shortName}</div>
-                    <div className="col periodScore bold-font">{EventData.awayScore.current}</div>
-                </div>
-
-                <div className="row team">
-                    <div className="col-4 team">{EventData.homeTeam.shortName}</div>
-                    <div className="col periodScore bold-font">{EventData.homeScore.current}</div>
+            <div className="scoreboard hover-cursor">
+                <div className='scoreboard-content'>
+                    {EventData.status.type === "notstarted" ? (
+                        <ScoreFuture
+                            eventData={EventData}
+                        />
+                    ) : (
+                        <ScoreLive
+                            eventData={EventData}
+                        />
+                    )}
+                    <ScoreboardInfo
+                        eventData={EventData}
+                        formattedDate={dayMonth}
+                        formattedTime={time}
+                    />
                 </div>
             </div>
         </div>

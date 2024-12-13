@@ -4,13 +4,7 @@
 
 .scoreboard {
     width: 100%;
-    border-radius: 10px;
-    height: 190px;
     background-color: white;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
   }
 
   .header {
@@ -23,9 +17,17 @@
 .team {
     display: flex;
     align-items: center;
+    padding: 5px;
+    font-size: 0.9rem;
+    width: 100%;
 }
 
-.team .score {
+.team-name {
+    max-width: 90%!important;
+}
+
+.team-score {
+    max-width: 10%!important;
     text-align: right;
 }
 
@@ -50,3 +52,27 @@
     text-align: right;
     padding-right: 25px;
 }
+
+.scoreboard-content {
+    display: flex;
+    align-items: center;
+}
+
+.scoreboard-score {
+    width: 75%;
+}
+
+.scoreboard-info {
+    font-size: 0.6rem;
+    text-align: center;
+    height: 100%;
+    align-content: center;
+    margin-right: 0;
+    display: grid;
+    border-left-style: solid;
+    border-left-color: lightgray;
+    padding: 5px;
+    width: 25%;
+}
+
+

@@ -72,9 +72,18 @@ const LiveScores = () => {
         <div className="scroll-view pt-3 pb-5">
           <div className="v-stack league-container">
             {liveDataPage.length !== 0 ? (
-              liveDataPage.map((data, index) => (
-                <ConstructBoard key={index} EventData={data} />
-              ))
+              liveDataPage.map((data, index) => {
+                const isLastData = index === liveDataPage.length - 1;
+
+                return (
+                  <div
+                    key={index}
+                    className={`live-score-board ${isLastData ? '' : 'bottom-border'}`}
+                  >
+                    <ConstructBoard EventData={data} />
+                  </div>
+                );
+              })
             ) : (
               <div className="row no-gutters score-container-scroll xs-padding overflow-auto liveScoresContainer">
                 <div className="page-text text-center">
