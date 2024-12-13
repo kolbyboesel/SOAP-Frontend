@@ -14,6 +14,7 @@ const Account = () => {
     lastName: '',
     isLoggedIn: false,
     LeagueFavorites: [],
+    TeamFavorites: [],
   });
 
   const defaultSettings = {
@@ -22,6 +23,7 @@ const Account = () => {
     lastName: 'Doe',
     isLoggedIn: false,
     LeagueFavorites: [],
+    TeamFavorites: [],
   };
 
   useEffect(() => {
@@ -73,7 +75,7 @@ const Account = () => {
       </div>
 
       <div className="account-favorites">
-        <h3>Your Favorite Sports</h3>
+        <h3>Your Favorite Leagues</h3>
         {settings.LeagueFavorites && settings.LeagueFavorites.length > 0 ? (
           <ul>
             {settings.LeagueFavorites.map((favorite, index) => (
@@ -81,7 +83,20 @@ const Account = () => {
             ))}
           </ul>
         ) : (
-          <p>No favorites found.</p>
+          <p>No favorite leagues.</p>
+        )}
+      </div>
+
+      <div className="account-favorites">
+        <h3>Your Favorite Teams</h3>
+        {settings.TeamFavorites && settings.TeamFavorites.length > 0 ? (
+          <ul>
+            {settings.TeamFavorites.map((favorite, index) => (
+              <li key={index}>{favorite.name}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>No favorites teams.</p>
         )}
       </div>
 

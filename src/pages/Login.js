@@ -35,31 +35,35 @@ const Login = () => {
         const userSettings = response.data;
         updateUserSettings(userSettings);
 
-        const favoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userLeagueFavorites/${loginData.email}`);
+        // Fetch user league favorites by email
+        const leagueFavoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userLeagueFavorites/${loginData.email}`);
 
-        if (favoritesResponse.status === 200) {
-          const userFavorites = favoritesResponse.data;
-          console.log('User Favorites:', userFavorites);
-
-          const updatedUserSettings = {
-            ...userSettings,
-            LeagueFavorites: userFavorites,
-          };
-
-          updateUserSettings(updatedUserSettings);
-
-          localStorage.setItem('userSettings', JSON.stringify(updatedUserSettings));
-
-          navigate('/Account');
-        } else {
-          const updatedUserSettings = {
-            ...userSettings,
-            LeagueFavorites: [],
-          };
-          updateUserSettings(updatedUserSettings);
-          localStorage.setItem('userSettings', JSON.stringify(updatedUserSettings));
-          navigate('/Account');
+        let leagueFavorites = [];
+        if (leagueFavoritesResponse.status === 200) {
+          leagueFavorites = leagueFavoritesResponse.data;
+          console.log('User League Favorites:', leagueFavorites);
         }
+
+        // Fetch user team favorites by email (similar to league favorites)
+        const teamFavoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userTeamFavorites/${loginData.email}`);
+
+        let teamFavorites = [];
+        if (teamFavoritesResponse.status === 200) {
+          teamFavorites = teamFavoritesResponse.data;
+          console.log('User Team Favorites:', teamFavorites);
+        }
+
+        // Update user settings with both league and team favorites
+        const updatedUserSettings = {
+          ...userSettings,
+          LeagueFavorites: leagueFavorites,
+          TeamFavorites: teamFavorites,  // Add the TeamFavorites here
+        };
+
+        updateUserSettings(updatedUserSettings);
+        localStorage.setItem('userSettings', JSON.stringify(updatedUserSettings));
+
+        navigate('/Account');
       } else {
         setError(response.data.message || 'Login failed: Invalid credentials');
       }
