@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/ConstructBoard.css';
 
-const ScoreLive = ({ eventData, date, time }) => {
+const ScoreLive = ({ eventData, homeTeamLogo, awayTeamLogo }) => {
     const awayScore = eventData.awayScore.current;
     const homeScore = eventData.homeScore.current;
 
@@ -11,6 +11,9 @@ const ScoreLive = ({ eventData, date, time }) => {
                 className={`row team ${awayScore > homeScore ? 'win' : 'lose'}`}
                 style={{ borderLeft: 'none', borderTop: 'none', borderRight: 'none' }}
             >
+                <div className="team-logo">
+                    <img src={`data:image/png;base64,${awayTeamLogo}`} alt="" className="team-logo-img" />
+                </div>
                 <div className="team-name">{eventData.awayTeam.shortName}</div>
                 <div className="team-score">{awayScore}</div>
             </div>
@@ -18,6 +21,9 @@ const ScoreLive = ({ eventData, date, time }) => {
             <div
                 className={`row team ${homeScore > awayScore ? 'win' : 'lose'}`}
             >
+                <div className="team-logo">
+                    <img src={`data:image/png;base64,${homeTeamLogo}`} alt="" className="team-logo-img" />
+                </div>
                 <div className="team-name">{eventData.homeTeam.shortName}</div>
                 <div className="team-score">{homeScore}</div>
             </div>

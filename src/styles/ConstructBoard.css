@@ -23,15 +23,30 @@
 }
 
 .team-name {
-    width: 85%!important;
+    width: 77%!important;
     white-space: nowrap;     
     overflow: hidden;        
     text-overflow: ellipsis;  
+    padding: 0!important;
+    padding-left: 1%!important;
 }
 
 .team-score {
     max-width: 15%!important;
     text-align: center;
+    padding: 0!important;
+}
+
+.team-logo {
+    max-width: 8%!important;
+    padding: 0!important;
+    padding-right: 1%!important;
+    max-height: 50px;
+}
+
+.team-logo-img {
+    max-width: 100%!important;
+    max-height: 50px!important;
 }
 
 .win {
@@ -64,6 +79,7 @@
     width: 75%;
     border-right-style: solid;
     border-right-color: lightgray;
+    border-right-width: 1px;
 }
 
 .scoreboard-info {
