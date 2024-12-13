@@ -95,7 +95,7 @@ const Account = () => {
               {isLeaguesExpanded ? 'Your Favorite Leagues   ' : 'Your Favorite Leagues   '}
               <span>{isLeaguesExpanded ? '▲' : '▼'}</span>
             </button>
-            <button onClick={() => alert('Edit functionality')} style={{ width: '15%' }}>
+            <button onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
               Edit
             </button>
           </div>
@@ -126,7 +126,7 @@ const Account = () => {
               {isTeamsExpanded ? 'Your Favorite Teams   ' : 'Your Favorite Teams   '}
               <span>{isTeamsExpanded ? '▲' : '▼'}</span>
             </button>
-            <button onClick={() => alert('Edit functionality')} style={{ width: '15%' }}>
+            <button onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
               Edit
             </button>
           </div>

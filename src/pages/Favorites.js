@@ -85,7 +85,7 @@ const Favorites = () => {
             {isLoading ? (
                 <div className="loading liveLoading">Loading&#8230;</div>
             ) : (
-                <div className="scroll-view pt-3 pb-5">
+                <div className="scroll-view pt-3 pb-5" id='top-favorites'>
                     {Object.keys(groupedEvents).length > 0 ? (
                         <div className="league-events-container">
                             <div className="events-section">
@@ -120,7 +120,7 @@ const Favorites = () => {
             )}
 
             <footer className="text-center footer-style">
-                <a href="#top-scores" className="scroll-to-top-btn">
+                <a href="#top-favorites" className="scroll-to-top-btn">
                     <i className="fas fa-arrow-up"></i> To the top
                 </a>
             </footer>
