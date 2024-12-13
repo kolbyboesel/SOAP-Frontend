@@ -23,7 +23,7 @@
 }
 
 .team-name {
-    width: 77%!important;
+    width: 70%!important;
     white-space: nowrap;     
     overflow: hidden;        
     text-overflow: ellipsis;  
@@ -38,15 +38,16 @@
 }
 
 .team-logo {
-    max-width: 8%!important;
+    max-width: 14%!important;
     padding: 0!important;
     padding-right: 1%!important;
-    max-height: 50px;
+    max-height: 40px;
+    text-align: center;
 }
 
 .team-logo-img {
     max-width: 100%!important;
-    max-height: 50px!important;
+    max-height: 40px!important;
 }
 
 .win {
