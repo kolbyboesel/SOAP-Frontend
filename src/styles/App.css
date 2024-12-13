@@ -353,4 +353,5 @@ input[type="email"]:focus {
   border-bottom: 1px solid lightgray;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding-bottom: 10px;
 }

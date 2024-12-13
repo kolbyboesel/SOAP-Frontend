@@ -23,17 +23,19 @@
 }
 
 .team-name {
-    max-width: 90%!important;
+    width: 85%!important;
+    white-space: nowrap;     
+    overflow: hidden;        
+    text-overflow: ellipsis;  
 }
 
 .team-score {
-    max-width: 10%!important;
-    text-align: right;
+    max-width: 15%!important;
+    text-align: center;
 }
 
-.win .score {
+.win {
     font-weight: bold;
-    color: black;
 }
 
 .win .team {
@@ -60,6 +62,8 @@
 
 .scoreboard-score {
     width: 75%;
+    border-right-style: solid;
+    border-right-color: lightgray;
 }
 
 .scoreboard-info {
@@ -69,8 +73,6 @@
     align-content: center;
     margin-right: 0;
     display: grid;
-    border-left-style: solid;
-    border-left-color: lightgray;
     padding: 5px;
     width: 25%;
 }
