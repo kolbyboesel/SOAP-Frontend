@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { UserSettingsContext } from './UserSettings';
 import '../styles/Navbar.css';
+import classNames from 'classnames';
 
 const Navbar = () => {
   const { userSettings } = useContext(UserSettingsContext);
@@ -63,39 +64,38 @@ const Navbar = () => {
       <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNavDropdown">
         <ul className="navbar-nav">
           <div className="center-container">
-            <li id="home-item" className="nav-item">
-              <NavLink
-                id="home-link"
-                className="nav-link"
-                to="/"
-                onClick={closeNavbar}
-                activeClassName="active"
-              >
-                Home
-              </NavLink>
-            </li>
-            <li id="live-item" className="nav-item">
-              <NavLink
-                id="live-link"
-                className="nav-link"
-                to="/LiveScores"
-                onClick={closeNavbar}
-                activeClassName="active"
-              >
-                Live Scores
-              </NavLink>
-            </li>
-            <li id="live-item" className="nav-item">
-              <NavLink
-                id="live-link"
-                className="nav-link"
-                to="/Favorites"
-                onClick={closeNavbar}
-                activeClassName="active"
-              >
-                Favorites
-              </NavLink>
-            </li>
+            <ul style={{ listStyle: 'none', paddingLeft: '0' }}>
+              <li id="home-item" className="nav-item">
+                <NavLink
+                  id="home-link"
+                  className={({ isActive }) => classNames("nav-link", { active: isActive })}
+                  to="/"
+                  onClick={closeNavbar}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li id="live-item-1" className="nav-item">
+                <NavLink
+                  id="live-link-1"
+                  className={({ isActive }) => classNames("nav-link", { active: isActive })}
+                  to="/LiveScores"
+                  onClick={closeNavbar}
+                >
+                  Live Scores
+                </NavLink>
+              </li>
+              <li id="live-item-2" className="nav-item">
+                <NavLink
+                  id="live-link-2"
+                  className={({ isActive }) => classNames("nav-link", { active: isActive })}
+                  to="/Favorites"
+                  onClick={closeNavbar}
+                >
+                  Favorites
+                </NavLink>
+              </li>
+            </ul>
           </div>
 
           <div className="right-container">
@@ -106,19 +106,15 @@ const Navbar = () => {
                     href="/"
                     className="nav-link"
                     onClick={handleSignOut}
-                    activeClassName="active"
                   >
                     Sign Out
                   </a>
                 </li>
-
-
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link"
+                    className={({ isActive }) => classNames("nav-link", { active: isActive })}
                     to="/Account"
                     onClick={closeNavbar}
-                    activeClassName="active"
                   >
                     Account
                   </NavLink>
@@ -128,20 +124,18 @@ const Navbar = () => {
               <>
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link"
+                    className={({ isActive }) => classNames("nav-link", { active: isActive })}
                     to="/Signup"
                     onClick={closeNavbar}
-                    activeClassName="active"
                   >
                     Sign Up
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link"
+                    className={({ isActive }) => classNames("nav-link", { active: isActive })}
                     to="/Login"
                     onClick={closeNavbar}
-                    activeClassName="active"
                   >
                     Log In
                   </NavLink>

@@ -12,18 +12,16 @@ export const UserSettingsProvider = ({ children }) => {
     isLoggedIn: false,
   }), []);
 
-  const fetchUserSettings = useCallback(async () => {
-    try {
-      const response = await fetch('/api/usersettings');
-      if (response.ok) {
-        const settings = await response.json();
-        setUserSettings(settings);
-      } else {
-        console.error('Failed to fetch user settings, using default settings.');
-        setUserSettings(defaultSettings);
-      }
-    } catch (error) {
-      console.error('Error occurred while fetching user settings:', error);
+  const fetchUserSettings = useCallback(() => {
+    // Try to get the settings from localStorage
+    const savedSettings = localStorage.getItem('userSettings');
+    if (savedSettings) {
+      // If settings are found, use them
+      setUserSettings(JSON.parse(savedSettings));
+      console.log('Using stored user settings.');
+    } else {
+      // If no settings are found, set default settings
+      console.log('No saved settings, using default settings.');
       setUserSettings(defaultSettings);
     }
   }, [defaultSettings]);

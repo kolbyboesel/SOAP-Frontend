@@ -13,7 +13,7 @@ import Login from '../src/pages/Login';
 import UnderConstructionModal from "./components/UnderConstructionModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { UserSettingsProvider } from '../src/components/UserSettings'; // Import UserSettingsProvider
+import { UserSettingsProvider } from '../src/components/UserSettings';
 
 const App = () => {
   return (
