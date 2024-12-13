@@ -63,7 +63,16 @@
 
   .account-favorites {
     margin-top: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: gray;
+
   }
+
+  .account-favorites-banner {
+    display: flex;
+  }
+  
   
   .account-favorites ul {
     list-style-type: none;
@@ -78,4 +87,32 @@
   .account-favorites h3 {
     font-size: 1.5rem;
     color: #333;
+  }
+
+  .expandable-list {
+    margin-top: 10px;
+  }
+  
+  button {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: lightgray;
+    color: black
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 5px;
+    text-align: center;
   }

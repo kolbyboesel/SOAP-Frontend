@@ -5,6 +5,19 @@ import axios from 'axios'; // Ensure axios is also imported
 import '../styles/Account.css';
 
 const Account = () => {
+  const [isLeaguesExpanded, setIsLeaguesExpanded] = useState(false);
+  const [isTeamsExpanded, setIsTeamsExpanded] = useState(false);
+
+  // Function to toggle the visibility of leagues
+  const handleLeaguesToggle = () => {
+    setIsLeaguesExpanded(!isLeaguesExpanded);
+  };
+
+  // Function to toggle the visibility of teams
+  const handleTeamsToggle = () => {
+    setIsTeamsExpanded(!isTeamsExpanded);
+  };
+
   const { updateUserSettings } = useContext(UserSettingsContext);
   const { userSettings } = useContext(UserSettingsContext);
   const navigate = useNavigate();
@@ -74,33 +87,70 @@ const Account = () => {
         </div>
       </div>
 
-      <div className="account-favorites">
-        <h3>Your Favorite Leagues</h3>
-        {settings.LeagueFavorites && settings.LeagueFavorites.length > 0 ? (
-          <ul>
-            {settings.LeagueFavorites.map((favorite, index) => (
-              <li key={index}>{favorite.sportName}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>No favorite leagues.</p>
-        )}
+      <div>
+        {/* Favorite Leagues Section (Dropdown with Edit button) */}
+        <div className="account-favorites">
+          <div className=' account-favorites-banner'>
+            <button onClick={handleLeaguesToggle}>
+              {isLeaguesExpanded ? 'Your Favorite Leagues   ' : 'Your Favorite Leagues   '}
+              <span>{isLeaguesExpanded ? '▲' : '▼'}</span>
+            </button>
+            <button onClick={() => alert('Edit functionality')} style={{ width: '10%' }}>
+              Edit
+            </button>
+          </div>
+
+          {/* Leagues Dropdown */}
+          {settings.LeagueFavorites && settings.LeagueFavorites.length > 0 ? (
+            <div className="expandable-list">
+              {isLeaguesExpanded && (
+                <ul>
+                  {settings.LeagueFavorites.map((favorite, index) => (
+                    <li key={index}>
+                      <strong>{favorite.sportName}</strong>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ) : (
+            <p>No favorite leagues.</p>
+          )}
+        </div>
+
+        {/* Favorite Teams Section (Dropdown with Edit button) */}
+        <div className="account-favorites">
+          <div className=" account-favorites-banner">
+
+            <button onClick={handleTeamsToggle} >
+              {isTeamsExpanded ? 'Your Favorite Teams   ' : 'Your Favorite Teams   '}
+              <span>{isTeamsExpanded ? '▲' : '▼'}</span>
+            </button>
+            <button onClick={() => alert('Edit functionality')} style={{ width: '10%' }}>
+              Edit
+            </button>
+          </div>
+
+          {/* Teams Dropdown */}
+          {settings.TeamFavorites && settings.TeamFavorites.length > 0 ? (
+            <div className="expandable-list">
+              {isTeamsExpanded && (
+                <ul>
+                  {settings.TeamFavorites.map((favorite, index) => (
+                    <li key={index}>
+                      <strong>{favorite.name}</strong> ({favorite.shortName}) - {favorite.sportName}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ) : (
+            <p>No favorite teams.</p>
+          )}
+        </div>
       </div>
 
-      <div className="account-favorites">
-        <h3>Your Favorite Teams</h3>
-        {settings.TeamFavorites && settings.TeamFavorites.length > 0 ? (
-          <ul>
-            {settings.TeamFavorites.map((favorite, index) => (
-              <li key={index}>{favorite.name}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>No favorites teams.</p>
-        )}
-      </div>
-
-      <div className="container">
+      <div className="container" style={{ paddingTop: '50px' }}>
         <button className="account-btn" onClick={handleDeleteAccount}>
           Delete Account
         </button>
