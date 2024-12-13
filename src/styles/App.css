@@ -334,3 +334,17 @@ input[type="email"]:focus {
     width: 100%;
   }
 }
+
+.league-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.scroll-view {
+  background-color: lightgray;
+  padding: 50px;
+  min-height: 100vh;
+  margin-bottom: 20px;
+}

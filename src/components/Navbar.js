@@ -89,6 +89,17 @@ const Navbar = () => {
                 Live Scores
               </NavLink>
             </li>
+            <li id="live-item" className="nav-item">
+              <NavLink
+                id="live-link"
+                className="nav-link"
+                to="/Favorites"
+                onClick={closeNavbar}
+                activeClassName="active"  // Add active class when on this route
+              >
+                Favorites
+              </NavLink>
+            </li>
           </div>
 
           <div className="right-container">

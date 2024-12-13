@@ -79,7 +79,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="scroll-view">
       <form className="modal-content animate mobileScreen" onSubmit={handleLoginSubmit}>
         <div className="container pt-5 h-auto">
           <label className="left-align" htmlFor="uname">

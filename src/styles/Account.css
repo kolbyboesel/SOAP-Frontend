@@ -23,6 +23,9 @@
   
   .account-details {
     margin-bottom: 30px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
   }
   
   .account-item {
@@ -77,6 +80,7 @@
   .account-favorites ul {
     list-style-type: none;
     padding: 0;
+    margin-bottom: 0;
   }
   
   .account-favorites li {
@@ -90,7 +94,9 @@
   }
 
   .expandable-list {
-    margin-top: 10px;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   
   button {
@@ -101,11 +107,16 @@
     cursor: pointer;
     font-size: 14px;
     margin-bottom: 10px;
+    border-top-left-radius: 10px!important;
+    border-top-right-radius: 10px!important;
   }
   
   button:hover {
-    background-color: lightgray;
-    color: black
+    background-color: white;
+    color: black;
+    border-top-left-radius: 10px!important;
+    border-top-right-radius: 10px!important;
+
   }
   
   ul {
@@ -113,6 +124,5 @@
   }
   
   li {
-    margin-bottom: 5px;
     text-align: center;
   }

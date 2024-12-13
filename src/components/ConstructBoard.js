@@ -15,7 +15,7 @@ const ConstructBoard = ({ EventData }) => {
     });
 
     return (
-        <div className="col-12 center-elements pt-3 pb-3 pl-3">
+        <div className="col-12 center-elements pl-3">
             <div className="container scoreboard hover-cursor">
                 <div className="row header">
                     <div className="col-auto headerElement">{dateString}</div>

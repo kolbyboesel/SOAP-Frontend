@@ -70,7 +70,7 @@ const Account = () => {
   };
 
   return (
-    <div className="container pt-3 pb-3">
+    <div className="scroll-view pt-3 pb-3">
       <div className="account-header">
         <h2>Account Settings</h2>
         <p>View and update your account details</p>
@@ -95,7 +95,7 @@ const Account = () => {
               {isLeaguesExpanded ? 'Your Favorite Leagues   ' : 'Your Favorite Leagues   '}
               <span>{isLeaguesExpanded ? '▲' : '▼'}</span>
             </button>
-            <button onClick={() => alert('Edit functionality')} style={{ width: '10%' }}>
+            <button onClick={() => alert('Edit functionality')} style={{ width: '15%' }}>
               Edit
             </button>
           </div>
@@ -126,7 +126,7 @@ const Account = () => {
               {isTeamsExpanded ? 'Your Favorite Teams   ' : 'Your Favorite Teams   '}
               <span>{isTeamsExpanded ? '▲' : '▼'}</span>
             </button>
-            <button onClick={() => alert('Edit functionality')} style={{ width: '10%' }}>
+            <button onClick={() => alert('Edit functionality')} style={{ width: '15%' }}>
               Edit
             </button>
           </div>

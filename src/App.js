@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from '../src/pages/Home';
 import LiveScores from '../src/pages/LiveScores';
 import Account from '../src/pages/Account';
+import Favorites from '../src/pages/Favorites';
 import ChangeEmail from '../src/pages/ChangeEmail';
 import ChangePassword from '../src/pages/ChangePassword';
 import Signup from '../src/pages/Signup';
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/LiveScores" element={<LiveScores />} />
           <Route path="/Account" element={<Account />} />
+          <Route path="/Favorites" element={<Favorites />} />
           <Route path="/ChangeEmail" element={<ChangeEmail />} />
           <Route path="/ChangePassword" element={<ChangePassword />} />
           <Route path="/Signup" element={<Signup />} />

@@ -61,7 +61,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="container">
+    <div className="scroll-view">
       <form className="modal-content animate mobileScreen" onSubmit={handleSignupSubmit}>
         <div className="container pt-5 h-auto">
           <label className="left-align" htmlFor="Email">

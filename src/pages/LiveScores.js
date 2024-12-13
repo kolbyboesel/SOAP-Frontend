@@ -72,14 +72,14 @@ const LiveScores = () => {
         {/* Loading state */}
         {isLoading && <div className="loading liveLoading">Loading&#8230;</div>}
 
-        <div className="container scroll-view pt-3 pb-5">
-          <div className="v-stack">
+        <div className="scroll-view pt-3 pb-5">
+          <div className="v-stack league-container">
             {liveDataPage.length !== 0 ? (
               liveDataPage.map((data, index) => (
                 <ConstructBoard key={index} EventData={data} />
               ))
             ) : (
-              <div className="row no-gutters score-container-scroll indexContainerPad xs-padding overflow-auto liveScoresContainer">
+              <div className="row no-gutters score-container-scroll xs-padding overflow-auto liveScoresContainer">
                 <div className="page-text text-center">
                   {liveScoreMessage}
                 </div>
