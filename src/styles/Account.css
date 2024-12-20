@@ -6,6 +6,10 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  .account-border {
+    border-bottom: 1px solid lightgray;
+  }
   
   .account-header {
     text-align: center;
@@ -32,7 +36,6 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
     font-size: 1.1rem;
   }
   
@@ -107,17 +110,21 @@
     cursor: pointer;
     font-size: 14px;
     margin-bottom: 10px;
-    border-top-left-radius: 10px!important;
-    border-top-right-radius: 10px!important;
   }
   
   button:hover {
     background-color: darkgray;
     color: white;
-    border-top-left-radius: 10px!important;
-    border-top-right-radius: 10px!important;
-    
+  }
 
+  .favorites-toggle {
+    border-top-left-radius: 8px!important;
+    border-bottom-left-radius: 8px!important;
+  }
+
+  .edit-toggle {
+    border-top-right-radius: 8px!important;
+    border-bottom-right-radius: 8px!important;
   }
   
   ul {

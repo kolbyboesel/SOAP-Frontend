@@ -172,7 +172,7 @@ const Favorites = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className="no-events-message">
+                        <div className="no-events-message league-container">
                             <div className="page-text text-center">{liveScoreMessage}</div>
                         </div>
                     )}

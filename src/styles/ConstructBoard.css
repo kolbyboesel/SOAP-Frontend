@@ -21,10 +21,11 @@
     font-size: 0.9rem;
     width: 100%;
     flex-wrap: nowrap!important;
+    height: 40px;
 }
 
 .team-name {
-    width: 70%!important;
+    width: -webkit-fill-available;
     white-space: nowrap;     
     overflow: hidden;        
     text-overflow: ellipsis;  
@@ -33,9 +34,9 @@
 }
 
 .team-score {
-    max-width: 15%!important;
+    max-width: 5%!important;
     text-align: center;
-    padding: 0!important;
+    margin-right: 15px!important;
 }
 
 .team-logo {
@@ -78,7 +79,7 @@
 }
 
 .scoreboard-score {
-    width: 75%;
+    width: -webkit-fill-available;
     border-right-style: solid;
     border-right-color: lightgray;
     border-right-width: 1px;
@@ -92,7 +93,7 @@
     margin-right: 0;
     display: grid;
     padding: 5px;
-    width: 25%;
+    width: 100px;
 }
 
 

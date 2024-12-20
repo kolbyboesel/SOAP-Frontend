@@ -76,9 +76,11 @@ const Account = () => {
         <div className="account-item">
           <strong>Email:</strong> <span>{settings.loginID || 'N/A'}</span>
         </div>
+        <div className="account-border"></div>
         <div className="account-item">
           <strong>First Name:</strong> <span>{settings.firstName || 'N/A'}</span>
         </div>
+        <div className="account-border"></div>
         <div className="account-item">
           <strong>Last Name:</strong> <span>{settings.lastName || 'N/A'}</span>
         </div>
@@ -88,11 +90,11 @@ const Account = () => {
         {/* Favorite Leagues Section (Dropdown with Edit button) */}
         <div className="account-favorites">
           <div className=' account-favorites-banner'>
-            <button onClick={handleLeaguesToggle}>
+            <button className="favorites-toggle" onClick={handleLeaguesToggle}>
               {isLeaguesExpanded ? 'Your Favorite Leagues   ' : 'Your Favorite Leagues   '}
               <span>{isLeaguesExpanded ? '▲' : '▼'}</span>
             </button>
-            <button onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
+            <button className="edit-toggle" onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
               Edit
             </button>
           </div>
@@ -119,11 +121,11 @@ const Account = () => {
         <div className="account-favorites">
           <div className=" account-favorites-banner">
 
-            <button onClick={handleTeamsToggle} >
+            <button className="favorites-toggle" onClick={handleTeamsToggle} >
               {isTeamsExpanded ? 'Your Favorite Teams   ' : 'Your Favorite Teams   '}
               <span>{isTeamsExpanded ? '▲' : '▼'}</span>
             </button>
-            <button onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
+            <button className="edit-toggle" onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
               Edit
             </button>
           </div>

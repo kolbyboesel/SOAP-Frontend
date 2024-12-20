@@ -8,7 +8,7 @@ const ScoreLive = ({ eventData, homeTeamLogo, awayTeamLogo }) => {
     return (
         <div className='scoreboard-score'>
             <div
-                className={`row team ${awayScore > homeScore ? 'win' : 'lose'}`}
+                className={`team ${awayScore > homeScore ? 'win' : 'lose'}`}
                 style={{ borderLeft: 'none', borderTop: 'none', borderRight: 'none' }}
             >
                 <div className="team-logo">
@@ -19,7 +19,7 @@ const ScoreLive = ({ eventData, homeTeamLogo, awayTeamLogo }) => {
             </div>
 
             <div
-                className={`row team ${homeScore > awayScore ? 'win' : 'lose'}`}
+                className={`team ${homeScore > awayScore ? 'win' : 'lose'}`}
             >
                 <div className="team-logo">
                     <img src={`data:image/png;base64,${homeTeamLogo}`} alt="" className="team-logo-img" />
