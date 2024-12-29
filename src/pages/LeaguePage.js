@@ -3,6 +3,8 @@ import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Home.css';
+import LeagueHome from '../components/LeagueComponents/LeagueHome';
+import LeagueStandings from '../components/LeagueComponents/LeagueStandings';
 
 const LeaguePage = () => {
     const [searchParams] = useSearchParams();
@@ -11,18 +13,19 @@ const LeaguePage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [leagueSubpage, setLeagueSubpage] = useState('Home');
     const [leagueInfo, setLeagueInfo] = useState({});
+    const [leagueStandings, setLeagueStandings] = useState({});
     const [leagueLogo, setLeagueLogo] = useState(null);
 
     const fetchLeagueData = useCallback(async () => {
         setIsLoading(true);
         try {
-            const [newLeagueInfo, newLeagueLogo] = await Promise.all([
+            const [newLeagueInfo, newLeagueStandings, newLeagueLogo] = await Promise.all([
                 axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/league-info/${uniqueTournamentID}`),
                 axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/league-standings/${uniqueTournamentID}/${seasonID}`),
                 axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/tournament-logo/${uniqueTournamentID}`),
             ]);
             setLeagueInfo(newLeagueInfo.data);
-            {/*setLeagueStandings(newLeagueStandings.data);*/ }
+            setLeagueStandings(newLeagueStandings.data);
             setLeagueLogo(newLeagueLogo.data.imageData);
         } catch (error) {
             console.error('Error fetching team data:', error);
@@ -79,17 +82,17 @@ const LeaguePage = () => {
 
 
                     <div className="scroll-view pt-3 pb-5">
-                        {/*
 
                         {(() => {
-                            switch (teamSubpage) {
+                            switch (leagueSubpage) {
                                 case 'Home':
-                                    return <LeagueHome teamInfo={generalTeamInfo} teamMedia={teamMedia} />;
+                                    return <LeagueHome leagueInfo={leagueInfo} />;
+                                case 'Standings':
+                                    return <LeagueStandings leagueStandings={leagueStandings} />;
                                 default:
-                                    return <LeagueHome teamInfo={generalTeamInfo} teamMedia={teamMedia} />;
+                                    return <LeagueHome leagueInfo={leagueInfo} />;
                             }
                         })()}
-                                                */}
 
                     </div>
                     <footer className="text-center footer-style">
