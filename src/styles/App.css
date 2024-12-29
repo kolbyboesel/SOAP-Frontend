@@ -342,6 +342,17 @@ input[type="email"]:focus {
   }
 }
 
+@media screen and (min-width: 1000px) {
+
+  .scroll-view {
+    padding: 20px!important;
+    padding-left: 200px!important;
+    padding-right: 200px!important;
+    min-height: 100vh;
+    margin-bottom: 20px;
+  }
+}
+
 .league-container {
   background-color: white;
   padding: 20px;
