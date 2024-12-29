@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import ConstructBoard from '../components/ConstructBoard';
+import FavoritesScrollMenu from '../components/FavoritesScrollMenu';
 import { UserSettingsContext } from '../../src/components/UserSettings';
 
 const Favorites = () => {
@@ -146,6 +147,9 @@ const Favorites = () => {
 
     return (
         <div>
+            <FavoritesScrollMenu
+                userSettings={userSettings}
+            />
             {isLoading ? (
                 <div className="loading liveLoading">Loading&#8230;</div>
             ) : (

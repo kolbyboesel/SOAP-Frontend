@@ -107,7 +107,18 @@ const Account = () => {
                 <ul>
                   {settings.LeagueFavorites.map((favorite, index) => (
                     <li key={index}>
-                      <strong>{favorite.sportName}</strong>
+                      <button
+                        onClick={() => navigate(`/LeaguePage?UTID=${favorite.uniqueTournamentID}&SID=${favorite.seasonID}`)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: 'blue',
+                          textDecoration: 'underline',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <strong>{favorite.sportName}</strong>
+                      </button>
                     </li>
                   ))}
                 </ul>
