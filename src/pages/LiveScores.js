@@ -6,6 +6,7 @@ const LiveScores = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [liveDataPage, setLiveDataPage] = useState([]);
   const [liveScoreMessage, setLiveScoreMessage] = useState('Click One of the Sports Above to View Current Live Scores');
+  const [currentSport, setCurrentSport] = useState('');
 
   const fetchLiveScores = async (seasonName) => {
     setIsLoading(true);
@@ -26,6 +27,7 @@ const LiveScores = () => {
 
   const handleSportClick = (sport) => {
     fetchLiveScores(sport);
+    setCurrentSport(sport);
   };
 
   return (
@@ -36,30 +38,45 @@ const LiveScores = () => {
             <button
               onClick={() => handleSportClick('baseball')}
               className="w3-hover-text-white bg-red"
+              style={{
+                borderBottom: currentSport === 'baseball' ? `2px solid white` : 'none',
+              }}
             >
               Baseball
             </button>
             <button
               onClick={() => handleSportClick('american-football')}
               className="w3-hover-text-white bg-red"
+              style={{
+                borderBottom: currentSport === 'american-football' ? `2px solid white` : 'none',
+              }}
             >
               Football
             </button>
             <button
               onClick={() => handleSportClick('basketball')}
               className="w3-hover-text-white bg-red"
+              style={{
+                borderBottom: currentSport === 'basketball' ? `2px solid white` : 'none',
+              }}
             >
               Basketball
             </button>
             <button
               onClick={() => handleSportClick('ice-hockey')}
               className="w3-hover-text-white bg-red"
+              style={{
+                borderBottom: currentSport === 'ice-hockey' ? `2px solid white` : 'none',
+              }}
             >
               Hockey
             </button>
             <button
               onClick={() => handleSportClick('football')}
               className="w3-hover-text-whit bg-red"
+              style={{
+                borderBottom: currentSport === 'football' ? `2px solid white` : 'none',
+              }}
             >
               Soccer
             </button>

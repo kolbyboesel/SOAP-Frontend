@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../styles/Account.css';
 
 const Account = () => {
+
   const [isLeaguesExpanded, setIsLeaguesExpanded] = useState(false);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState(false);
 
@@ -137,7 +138,18 @@ const Account = () => {
                 <ul>
                   {settings.TeamFavorites.map((favorite, index) => (
                     <li key={index}>
-                      <strong>{favorite.name}</strong> ({favorite.shortName}) - {favorite.sportName}
+                      <button
+                        onClick={() => navigate(`/TeamPage?teamID=${favorite.teamID}`)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: 'blue',
+                          textDecoration: 'underline',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <strong>{favorite.name}</strong> ({favorite.shortName}) - {favorite.sportName}
+                      </button>
                     </li>
                   ))}
                 </ul>

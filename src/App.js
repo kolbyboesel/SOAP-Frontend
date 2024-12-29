@@ -8,6 +8,8 @@ import Account from '../src/pages/Account';
 import Favorites from '../src/pages/Favorites';
 import ChangeEmail from '../src/pages/ChangeEmail';
 import ChangePassword from '../src/pages/ChangePassword';
+import LeaguePage from '../src/pages/LeaguePage';
+import TeamPage from '../src/pages/TeamPage';
 import Signup from '../src/pages/Signup';
 import Login from '../src/pages/Login';
 import UnderConstructionModal from "./components/UnderConstructionModal";
@@ -28,6 +30,8 @@ const App = () => {
           <Route path="/Favorites" element={<Favorites />} />
           <Route path="/ChangeEmail" element={<ChangeEmail />} />
           <Route path="/ChangePassword" element={<ChangePassword />} />
+          <Route path="/LeaguePage" element={<LeaguePage />} />
+          <Route path="/TeamPage" element={<TeamPage />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Login" element={<Login />} />
         </Routes>

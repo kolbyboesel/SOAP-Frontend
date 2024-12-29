@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/ConstructBoard.css';
 
 const ScoreFuture = ({ eventData, homeTeamLogo, awayTeamLogo }) => {
+
     return (
         <div className='scoreboard-score'>
             <div className="team lose" style={{ borderLeft: 'none', borderTop: 'none', borderRight: 'none' }}>

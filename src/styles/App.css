@@ -125,7 +125,7 @@ a {
   display: flex !important;
 }
 
-.bg-primary {
+.bg-white {
   background-color: white !important;
 }
 
@@ -362,3 +362,57 @@ input[type="email"]:focus {
   margin-top: 10px;
   padding-bottom: 10px;
 }
+
+.team-header {
+  display: flex;
+  max-height: 75px;
+}
+
+.team-header-img {
+  max-width: 75px;
+  max-height: 75px;
+}
+
+.team-header-text {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  padding: 10px;
+}
+
+.media-container {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.media-item {
+  display: grid;
+  color: black!important;
+  text-decoration: none!important;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.media-item-image {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.media-item-text {
+  padding-top: 10px;
+}
+
+.player-card {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between ;
+}
+
+.player-name {
+  width: 25%;
+}
+
