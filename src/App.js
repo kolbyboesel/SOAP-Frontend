@@ -12,6 +12,7 @@ import LeaguePage from '../src/pages/LeaguePage';
 import TeamPage from '../src/pages/TeamPage';
 import Signup from '../src/pages/Signup';
 import Login from '../src/pages/Login';
+import EventInfo from '../src/pages/EventInfo';
 import UnderConstructionModal from "./components/UnderConstructionModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/LiveScores" element={<LiveScores />} />
           <Route path="/Account" element={<Account />} />
           <Route path="/Favorites" element={<Favorites />} />
+          <Route path="/EventInfo" element={<EventInfo />} />
           <Route path="/ChangeEmail" element={<ChangeEmail />} />
           <Route path="/ChangePassword" element={<ChangePassword />} />
           <Route path="/LeaguePage" element={<LeaguePage />} />

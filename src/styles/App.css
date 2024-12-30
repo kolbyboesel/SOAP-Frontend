@@ -427,3 +427,64 @@ input[type="email"]:focus {
   width: 25%;
 }
 
+.standings-table {
+  width: 100%;
+}
+
+.standings-table td {
+  font-size: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   
+  max-width: 150px;
+}
+
+.standings-table th {
+  font-weight: bold;
+}
+
+.event-info-header {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.event-info-header-team-home {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: calc(50% - 50px);
+  justify-content: end;
+}
+
+.event-info-header-team-home h2 {
+  font-size: 1rem;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   
+}
+
+
+.event-info-header-team-away {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: calc(50% - 50px);
+}
+
+.event-info-header-team-away h2 {
+  font-size: 1rem;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   
+}
+
+.event-header-img {
+  max-width: 50px;
+  max-height: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
+}

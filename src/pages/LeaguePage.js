@@ -25,7 +25,7 @@ const LeaguePage = () => {
                 axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/tournament-logo/${uniqueTournamentID}`),
             ]);
             setLeagueInfo(newLeagueInfo.data);
-            setLeagueStandings(newLeagueStandings.data);
+            setLeagueStandings(newLeagueStandings.data.standings);
             setLeagueLogo(newLeagueLogo.data.imageData);
         } catch (error) {
             console.error('Error fetching team data:', error);

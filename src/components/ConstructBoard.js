@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/ConstructBoard.css';
 import ScoreFuture from './ScoreFuture';
@@ -9,6 +10,7 @@ const ConstructBoard = ({ EventData }) => {
     const [homeTeamLogo, setHomeTeamLogo] = useState(null);
     const [awayTeamLogo, setAwayTeamLogo] = useState(null);
 
+    const navigate = useNavigate();
 
     useEffect(() => {
         setHomeTeamLogo(null);
@@ -57,10 +59,22 @@ const ConstructBoard = ({ EventData }) => {
 
     const { dayMonth, time } = formatDate(EventData.startTimestamp);
 
+    const handleClick = () => {
+        navigate('/EventInfo', {
+            state: {
+                eventData: EventData,
+                homeTeamLogo,
+                awayTeamLogo,
+            }
+        });
+    };
 
     return (
         <div className="col-12 center-elements pl-3">
-            <div className="scoreboard hover-cursor">
+            <div className="scoreboard hover-cursor" onClick={handleClick} style={{
+
+                cursor: "pointer",
+            }}>
                 <div className='scoreboard-content'>
                     {EventData.status.type === "notstarted" ? (
                         <ScoreFuture
