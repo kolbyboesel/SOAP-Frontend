@@ -7,6 +7,7 @@ import LeagueHome from '../components/LeagueComponents/LeagueHome';
 import LeagueStandings from '../components/LeagueComponents/LeagueStandings';
 
 const LeaguePage = () => {
+    const apiKey = process.env.REACT_APP_BACKEND_KEY;
     const [searchParams] = useSearchParams();
     const uniqueTournamentID = searchParams.get('UTID');
     const seasonID = searchParams.get('SID');
@@ -20,9 +21,9 @@ const LeaguePage = () => {
         setIsLoading(true);
         try {
             const [newLeagueInfo, newLeagueStandings, newLeagueLogo] = await Promise.all([
-                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/league-info/${uniqueTournamentID}`),
-                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/league-standings/${uniqueTournamentID}/${seasonID}`),
-                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/tournament-logo/${uniqueTournamentID}`),
+                axios.get(`${apiKey}/api/sofaScores/league-info/${uniqueTournamentID}`),
+                axios.get(`${apiKey}/api/sofaScores/league-standings/${uniqueTournamentID}/${seasonID}`),
+                axios.get(`${apiKey}/tournament-logo/${uniqueTournamentID}`),
             ]);
             setLeagueInfo(newLeagueInfo.data);
             setLeagueStandings(newLeagueStandings.data.standings);
@@ -32,7 +33,7 @@ const LeaguePage = () => {
         } finally {
             setIsLoading(false);
         }
-    }, [uniqueTournamentID, seasonID]);
+    }, [apiKey, uniqueTournamentID, seasonID]);
 
     useEffect(() => {
         if (uniqueTournamentID) {

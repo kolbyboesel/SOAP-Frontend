@@ -5,7 +5,7 @@ import axios from 'axios';
 import '../styles/Account.css';
 
 const Account = () => {
-
+  const apiKey = process.env.REACT_APP_BACKEND_KEY;
   const [isLeaguesExpanded, setIsLeaguesExpanded] = useState(false);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState(false);
 
@@ -49,7 +49,7 @@ const Account = () => {
 
     if (confirmDelete) {
       try {
-        const response = await axios.delete(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/delete/${settings.loginID}`);
+        const response = await axios.delete(`${apiKey}/api/userSettings/delete/${settings.loginID}`);
 
         if (response.status === 200) {
           alert('Your account has been successfully deleted.');

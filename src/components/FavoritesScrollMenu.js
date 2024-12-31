@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const FavoritesScrollMenu = ({ userSettings }) => {
+    const apiKey = process.env.REACT_APP_BACKEND_KEY;
     const [logos, setLogos] = useState([]);
     const navigate = useNavigate();
 
@@ -12,7 +13,7 @@ const FavoritesScrollMenu = ({ userSettings }) => {
             for (const favorite of userSettings.LeagueFavorites) {
                 try {
                     const response = await axios.get(
-                        `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/tournament-logo/${favorite.uniqueTournamentID}`
+                        `${apiKey}/tournament-logo/${favorite.uniqueTournamentID}`
                     );
                     fetchedLogos.push({
                         type: "league",
@@ -28,7 +29,7 @@ const FavoritesScrollMenu = ({ userSettings }) => {
             for (const favorite of userSettings.TeamFavorites) {
                 try {
                     const response = await axios.get(
-                        `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/team-logo/${favorite.teamID}`
+                        `${apiKey}/team-logo/${favorite.teamID}`
                     );
                     fetchedLogos.push({
                         type: "team",
@@ -44,7 +45,7 @@ const FavoritesScrollMenu = ({ userSettings }) => {
         };
 
         fetchLogos();
-    }, [userSettings]);
+    }, [apiKey, userSettings]);
 
     return (
         <div className="no-gutters responsiveScrollContainer bg-white">

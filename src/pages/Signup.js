@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Signup = () => {
+  const apiKey = process.env.REACT_APP_BACKEND_KEY;
   const { updateUserSettings } = useContext(UserSettingsContext);
   const navigate = useNavigate();
   const [signupData, setSignupData] = useState({
@@ -44,7 +45,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/register', signupData);
+      const response = await axios.post(`${apiKey}/api/userSettings/register`, signupData);
 
       if (response.status === 200) {
         const userSettings = response.data;

@@ -8,6 +8,7 @@ import TeamRoster from '../components/TeamComponents/TeamRoster';
 import TeamSchedule from '../components/TeamComponents/TeamSchedule';
 
 const TeamPage = () => {
+    const apiKey = process.env.REACT_APP_BACKEND_KEY;
     const [searchParams] = useSearchParams();
     const teamID = searchParams.get('teamID');
     const [isLoading, setIsLoading] = useState(true);
@@ -21,10 +22,10 @@ const TeamPage = () => {
         setIsLoading(true);
         try {
             const [teamInfo, teamMedia, teamPlayers, teamLogo] = await Promise.all([
-                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/team-info/${teamID}`),
-                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/team-media/${teamID}`),
-                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/team-roster/${teamID}`),
-                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/team-logo/${teamID}`),
+                axios.get(`${apiKey}/api/sofaScores/team-info/${teamID}`),
+                axios.get(`${apiKey}/api/sofaScores/team-media/${teamID}`),
+                axios.get(`${apiKey}/api/sofaScores/team-roster/${teamID}`),
+                axios.get(`${apiKey}/team-logo/${teamID}`),
             ]);
 
             setGeneralTeamInfo(teamInfo.data);
@@ -36,7 +37,7 @@ const TeamPage = () => {
         } finally {
             setIsLoading(false);
         }
-    }, [teamID]);
+    }, [apiKey, teamID]);
 
     useEffect(() => {
         if (teamID) {

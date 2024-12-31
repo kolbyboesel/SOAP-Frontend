@@ -5,56 +5,55 @@ import FavoritesScrollMenu from '../components/FavoritesScrollMenu';
 import { UserSettingsContext } from '../../src/components/UserSettings';
 
 const Favorites = () => {
+    const apiKey = process.env.REACT_APP_BACKEND_KEY;
     const [isLoading, setIsLoading] = useState(true);
     const { userSettings } = useContext(UserSettingsContext);
     const [eventsData, setEventsData] = useState([]);
     const [teamScoresData, setTeamScoresData] = useState([]);
     const [liveScoreMessage] = useState('Sign in to add your favorite leagues and view live scores here');
 
-    // Function to fetch live events for each league
-    const fetchLeagueEvents = async (uniqueTournamentID, seasonID, scoresType) => {
-        try {
-            const response = await axios.get(
-                `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/SofaScores/league-scores/${uniqueTournamentID}/${seasonID}/${scoresType}`
-            );
-            if (response.status === 200) {
-                setEventsData((prevData) => [...prevData, ...response.data]);
-            } else {
-                console.log(`No events found for ${scoresType} in ${uniqueTournamentID} : ${response.data.events}`);
-            }
-        } catch (error) {
-            console.error('Error fetching league events:', error);
-        }
-    };
-
-    const fetchTeamScores = async (teamID, eventType) => {
-        try {
-            const response = await axios.get(
-                `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/SofaScores/team-scores/${teamID}/${eventType}`
-            );
-            if (response.status === 200) {
-                setTeamScoresData((prevData) => [...prevData, ...response.data]);
-            } else {
-                console.log(`No team events found for ${eventType} in team ${teamID}`);
-            }
-        } catch (error) {
-            console.error('Error fetching team scores:', error);
-        }
-    };
-
-    // Fetch events for each favorite league
     useEffect(() => {
+        const fetchLeagueEvents = async (uniqueTournamentID, seasonID, scoresType) => {
+            try {
+                const response = await axios.get(
+                    `${apiKey}/api/SofaScores/league-scores/${uniqueTournamentID}/${seasonID}/${scoresType}`
+                );
+                if (response.status === 200) {
+                    setEventsData((prevData) => [...prevData, ...response.data]);
+                } else {
+                    console.log(`No events found for ${scoresType} in ${uniqueTournamentID}`);
+                }
+            } catch (error) {
+                console.error('Error fetching league events:', error);
+            }
+        };
+
+        const fetchTeamScores = async (teamID, eventType) => {
+            try {
+                const response = await axios.get(
+                    `${apiKey}/api/SofaScores/team-scores/${teamID}/${eventType}`
+                );
+                if (response.status === 200) {
+                    setTeamScoresData((prevData) => [...prevData, ...response.data]);
+                } else {
+                    console.log(`No team events found for ${eventType} in team ${teamID}`);
+                }
+            } catch (error) {
+                console.error('Error fetching team scores:', error);
+            }
+        };
+
         const fetchAllEvents = async () => {
             const promises = [];
 
-            if (userSettings.LeagueFavorites && userSettings.LeagueFavorites.length > 0) {
+            if (userSettings.LeagueFavorites?.length > 0) {
                 userSettings.LeagueFavorites.forEach((league) => {
                     promises.push(fetchLeagueEvents(league.uniqueTournamentID, league.seasonID, 'next'));
                     promises.push(fetchLeagueEvents(league.uniqueTournamentID, league.seasonID, 'last'));
                 });
             }
 
-            if (userSettings.TeamFavorites && userSettings.TeamFavorites.length > 0) {
+            if (userSettings.TeamFavorites?.length > 0) {
                 userSettings.TeamFavorites.forEach((team) => {
                     promises.push(fetchTeamScores(team.teamID, 'next'));
                     promises.push(fetchTeamScores(team.teamID, 'last'));
@@ -62,12 +61,11 @@ const Favorites = () => {
             }
 
             await Promise.all(promises);
-
             setIsLoading(false);
         };
 
         fetchAllEvents();
-    }, [userSettings.LeagueFavorites, userSettings.TeamFavorites]);
+    }, [apiKey, userSettings.LeagueFavorites, userSettings.TeamFavorites]);
 
     const groupedEvents = eventsData.reduce((acc, event) => {
         const tournamentName = event.tournament.uniqueTournament.name;
