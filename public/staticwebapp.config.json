@@ -1,6 +1,24 @@
 {
   "routes": [
     {
+      "route": "/static/*",
+      "headers": {
+        "Cache-Control": "max-age=31536000"
+      }
+    },
+    {
+      "route": "/manifest.json",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/favicon.ico",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
       "route": "/*",
       "rewrite": "/index.html"
     }
