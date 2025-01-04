@@ -30,7 +30,7 @@ const EventPredictions = ({ eventInfo }) => {
                 <div className="loading">Loading...</div>
             ) : (
                 <div className="team-header-text">
-                    <h4>Game Winner Prediction: {gameWinnerPrediction || "No prediction available"}</h4>
+                    <h4>Game Winner Prediction: {gameWinnerPrediction.gameSuggestion || "No prediction available"}</h4>
                 </div>
             )}
         </div>

@@ -6,16 +6,6 @@ import '../styles/Account.css';
 
 const Account = () => {
   const apiKey = process.env.REACT_APP_BACKEND_KEY;
-  const [isLeaguesExpanded, setIsLeaguesExpanded] = useState(false);
-  const [isTeamsExpanded, setIsTeamsExpanded] = useState(false);
-
-  const handleLeaguesToggle = () => {
-    setIsLeaguesExpanded(!isLeaguesExpanded);
-  };
-
-  const handleTeamsToggle = () => {
-    setIsTeamsExpanded(!isTeamsExpanded);
-  };
 
   const { updateUserSettings } = useContext(UserSettingsContext);
   const { userSettings } = useContext(UserSettingsContext);
@@ -30,7 +20,7 @@ const Account = () => {
   });
 
   const defaultSettings = {
-    userId: 'defaultUser',
+    loginID: 'defaultUser',
     firstName: 'John',
     lastName: 'Doe',
     isLoggedIn: false,
@@ -67,113 +57,25 @@ const Account = () => {
     }
   };
 
+  const handleEmailClick = () => {
+    navigate('/ChangePassword');
+  };
+
   return (
     <div className="scroll-view pt-3 pb-3">
       <div className="account-header">
-        <h2>Account Settings</h2>
-        <p>View and update your account details</p>
-      </div>
-      <div className="account-details">
-        <div className="account-item">
-          <strong>Email:</strong> <span>{settings.loginID || 'N/A'}</span>
-        </div>
-        <div className="account-border"></div>
-        <div className="account-item">
-          <strong>First Name:</strong> <span>{settings.firstName || 'N/A'}</span>
-        </div>
-        <div className="account-border"></div>
-        <div className="account-item">
-          <strong>Last Name:</strong> <span>{settings.lastName || 'N/A'}</span>
-        </div>
-      </div>
-
-      <div>
-        {/* Favorite Leagues Section (Dropdown with Edit button) */}
-        <div className="account-favorites">
-          <div className=' account-favorites-banner'>
-            <button className="favorites-toggle" onClick={handleLeaguesToggle}>
-              {isLeaguesExpanded ? 'Your Favorite Leagues   ' : 'Your Favorite Leagues   '}
-              <span>{isLeaguesExpanded ? '▲' : '▼'}</span>
-            </button>
-            <button className="edit-toggle" onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
-              Edit
-            </button>
-          </div>
-
-          {/* Leagues Dropdown */}
-          {settings.LeagueFavorites && settings.LeagueFavorites.length > 0 ? (
-            <div className="expandable-list">
-              {isLeaguesExpanded && (
-                <ul>
-                  {settings.LeagueFavorites.map((favorite, index) => (
-                    <li key={index}>
-                      <button
-                        onClick={() => navigate(`/LeaguePage?UTID=${favorite.uniqueTournamentID}&SID=${favorite.seasonID}`)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          color: 'blue',
-                          textDecoration: 'underline',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <strong>{favorite.sportName}</strong>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ) : (
-            <p>No favorite leagues.</p>
-          )}
-        </div>
-
-        {/* Favorite Teams Section (Dropdown with Edit button) */}
-        <div className="account-favorites">
-          <div className=" account-favorites-banner">
-
-            <button className="favorites-toggle" onClick={handleTeamsToggle} >
-              {isTeamsExpanded ? 'Your Favorite Teams   ' : 'Your Favorite Teams   '}
-              <span>{isTeamsExpanded ? '▲' : '▼'}</span>
-            </button>
-            <button className="edit-toggle" onClick={() => alert('Coming Soon. For Now, Please Edit Favorites in the iOS App')} style={{ width: '15%' }}>
-              Edit
-            </button>
-          </div>
-
-          {/* Teams Dropdown */}
-          {settings.TeamFavorites && settings.TeamFavorites.length > 0 ? (
-            <div className="expandable-list">
-              {isTeamsExpanded && (
-                <ul>
-                  {settings.TeamFavorites.map((favorite, index) => (
-                    <li key={index}>
-                      <button
-                        onClick={() => navigate(`/TeamPage?teamID=${favorite.teamID}`)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          color: 'blue',
-                          textDecoration: 'underline',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <strong>{favorite.name}</strong> ({favorite.shortName}) - {favorite.sportName}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ) : (
-            <p>No favorite teams.</p>
-          )}
-        </div>
+        <h2>{settings.firstName || 'N/A'} {settings.lastName || 'N/A'}</h2>
+        <p>{settings.loginID || 'N/A'}</p>
       </div>
 
       <div className="container" style={{ paddingTop: '50px' }}>
-        <button className="account-btn" onClick={handleDeleteAccount}>
+        <button onClick={handleEmailClick}>
+          Change Password
+        </button>
+      </div>
+
+      <div className="container" style={{ paddingTop: '50px' }}>
+        <button className="account-delete-btn" onClick={handleDeleteAccount}>
           Delete Account
         </button>
       </div>

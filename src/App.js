@@ -6,7 +6,6 @@ import Home from '../src/pages/Home';
 import LiveScores from '../src/pages/LiveScores';
 import Account from '../src/pages/Account';
 import Favorites from '../src/pages/Favorites';
-import ChangeEmail from '../src/pages/ChangeEmail';
 import ChangePassword from '../src/pages/ChangePassword';
 import LeaguePage from '../src/pages/LeaguePage';
 import TeamPage from '../src/pages/TeamPage';
@@ -30,7 +29,6 @@ const App = () => {
           <Route path="/Account" element={<Account />} />
           <Route path="/Favorites" element={<Favorites />} />
           <Route path="/EventInfo" element={<EventInfo />} />
-          <Route path="/ChangeEmail" element={<ChangeEmail />} />
           <Route path="/ChangePassword" element={<ChangePassword />} />
           <Route path="/LeaguePage" element={<LeaguePage />} />
           <Route path="/TeamPage" element={<TeamPage />} />
