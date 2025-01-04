@@ -1,8 +1,13 @@
 {
-    "routes": [
-      {
-        "route": "/*",
-        "rewrite": "/index.html"
-      }
-    ]
+  "routes": [
+    {
+      "route": "/*",
+      "rewrite": "/index.html"
+    }
+  ],
+  "mimeTypes": {
+    ".js": "application/javascript",
+    ".css": "text/css",
+    ".json": "application/json"
   }
+}
