@@ -3,7 +3,7 @@ import axios from 'axios';
 import ConstructBoard from '../components/ConstructBoard';
 
 const LiveScores = () => {
-  const apiKey = process.env.REACT_APP_BACKEND_KEY;
+
   const [isLoading, setIsLoading] = useState(false);
   const [liveDataPage, setLiveDataPage] = useState([]);
   const [liveScoreMessage, setLiveScoreMessage] = useState('Click One of the Sports Above to View Current Live Scores');
@@ -13,7 +13,7 @@ const LiveScores = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `${apiKey}/api/sofaScores/live-scores/${seasonName}`
+        `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/live-scores/${seasonName}`
       );
       setLiveDataPage(response.data);
       if (response.data.length === 0) {

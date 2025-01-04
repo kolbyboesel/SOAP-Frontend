@@ -3,7 +3,7 @@ import axios from 'axios';
 import ConstructBoard from '../ConstructBoard';
 
 const LeagueHome = ({ leagueInfo }) => {
-    const apiKey = process.env.REACT_APP_BACKEND_KEY;
+
     const [selectedDate, setSelectedDate] = useState(() => {
         const localDate = new Date();
         const year = localDate.getFullYear();
@@ -23,7 +23,7 @@ const LeagueHome = ({ leagueInfo }) => {
 
             try {
                 const response = await axios.get(
-                    `${apiKey}/api/sofaScores/league-scores-date/${leagueInfo.uniqueTournament.id}/${date}`
+                    `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/league-scores-date/${leagueInfo.uniqueTournament.id}/${date}`
                 );
 
                 // Sort events by status.type and startTimestamp

@@ -5,7 +5,7 @@ import FavoritesScrollMenu from '../components/FavoritesScrollMenu';
 import { UserSettingsContext } from '../../src/components/UserSettings';
 
 const Favorites = () => {
-    const apiKey = process.env.REACT_APP_BACKEND_KEY;
+
     const [isLoading, setIsLoading] = useState(true);
     const { userSettings } = useContext(UserSettingsContext);
     const [eventsData, setEventsData] = useState([]);
@@ -16,7 +16,7 @@ const Favorites = () => {
         const fetchLeagueEvents = async (uniqueTournamentID, seasonID, scoresType) => {
             try {
                 const response = await axios.get(
-                    `${apiKey}/api/SofaScores/league-scores/${uniqueTournamentID}/${seasonID}/${scoresType}`
+                    `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/SofaScores/league-scores/${uniqueTournamentID}/${seasonID}/${scoresType}`
                 );
                 if (response.status === 200) {
                     setEventsData((prevData) => [...prevData, ...response.data]);
@@ -31,7 +31,7 @@ const Favorites = () => {
         const fetchTeamScores = async (teamID, eventType) => {
             try {
                 const response = await axios.get(
-                    `${apiKey}/api/SofaScores/team-scores/${teamID}/${eventType}`
+                    `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/SofaScores/team-scores/${teamID}/${eventType}`
                 );
                 if (response.status === 200) {
                     setTeamScoresData((prevData) => [...prevData, ...response.data]);

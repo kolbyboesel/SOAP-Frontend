@@ -47,7 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_MUSHROOM_0D6BED110 }}
           github_id_token: ${{ steps.idtoken.outputs.result }}
-          REACT_APP_BACKEND_KEY: ${{ secrets.REACT_APP_BACKEND_KEY }}
 
       # Azure Static Web Apps deploy action
       - name: Azure Static Web Apps Deploy

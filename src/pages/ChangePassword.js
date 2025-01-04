@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ChangePassword = () => {
-  const apiKey = process.env.REACT_APP_BACKEND_KEY;
+
   const { userSettings } = useContext(UserSettingsContext);
   const navigate = useNavigate();
   const [changeData, setChangeData] = useState({
@@ -37,7 +37,7 @@ const ChangePassword = () => {
         return;
       }
 
-      const response = await axios.post(`${apiKey}/api/userSettings/update-password`, changeData);
+      const response = await axios.post(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/userSettings/update-password`, changeData);
 
       if (response.status === 200) {
         const successMessage = window.confirm('Your password has been successfully updated. Would you like to return to your account?');
