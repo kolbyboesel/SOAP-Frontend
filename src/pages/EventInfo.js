@@ -4,6 +4,7 @@ import EventInfoHome from '../components/EventInfoComponents/EventInfoHome';
 import ScoreboardInfo from '../components/ScoreboardInfo';
 import EventPredictions from '../components/EventInfoComponents/EventPredictions';
 
+
 const EventInfo = () => {
     const location = useLocation();
     const { eventData, homeTeamLogo, awayTeamLogo } = location.state;
