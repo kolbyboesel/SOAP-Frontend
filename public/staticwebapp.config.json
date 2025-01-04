@@ -7,6 +7,13 @@
       }
     },
     {
+      "route": "/images/*",
+      "headers": {
+        "Cache-Control": "no-cache"
+      },
+      "rewrite": null
+    },
+    {
       "route": "/manifest.json",
       "headers": {
         "Cache-Control": "no-cache"
