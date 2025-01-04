@@ -23,7 +23,7 @@ const LeagueHome = ({ leagueInfo }) => {
 
             try {
                 const response = await axios.get(
-                    `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/league-scores-date/${leagueInfo.uniqueTournament.id}/${date}`
+                    `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/league-scores-date/${leagueInfo.uniqueTournament.id}/${date}`
                 );
 
                 // Sort events by status.type and startTimestamp
@@ -45,7 +45,7 @@ const LeagueHome = ({ leagueInfo }) => {
                 setLoading(false);
             }
         },
-        [apiKey, leagueInfo]
+        [leagueInfo]
     );
 
     useEffect(() => {

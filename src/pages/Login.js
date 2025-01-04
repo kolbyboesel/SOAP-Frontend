@@ -29,13 +29,13 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/userSettings/confirmLogin`, loginData);
+      const response = await axios.post(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/confirmLogin`, loginData);
 
       if (response.status === 200) {
         const userSettings = response.data;
         updateUserSettings(userSettings);
 
-        const leagueFavoritesResponse = await axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/userLeagueFavorites/${loginData.email}`);
+        const leagueFavoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userLeagueFavorites/${loginData.email}`);
 
         let leagueFavorites = [];
         if (leagueFavoritesResponse.status === 200) {
@@ -43,7 +43,7 @@ const Login = () => {
           console.log('User League Favorites:', leagueFavorites);
         }
 
-        const teamFavoritesResponse = await axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/userTeamFavorites/${loginData.email}`);
+        const teamFavoritesResponse = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userTeamFavorites/${loginData.email}`);
 
         let teamFavorites = [];
         if (teamFavoritesResponse.status === 200) {

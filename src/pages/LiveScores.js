@@ -13,7 +13,7 @@ const LiveScores = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/live-scores/${seasonName}`
+        `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/live-scores/${seasonName}`
       );
       setLiveDataPage(response.data);
       if (response.data.length === 0) {

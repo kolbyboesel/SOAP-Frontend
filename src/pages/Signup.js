@@ -45,7 +45,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/userSettings/register`, signupData);
+      const response = await axios.post(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/register`, signupData);
 
       if (response.status === 200) {
         const userSettings = response.data;

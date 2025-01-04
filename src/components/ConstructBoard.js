@@ -18,7 +18,7 @@ const ConstructBoard = ({ EventData }) => {
         setAwayTeamLogo(null);
         const fetchHomeTeamLogo = async () => {
             try {
-                const response = await axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//team-logo/${EventData.homeTeam.id}`);
+                const response = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/team-logo/${EventData.homeTeam.id}`);
                 if (response.status === 200) {
                     setHomeTeamLogo(response.data.imageData);
                 } else {
@@ -31,7 +31,7 @@ const ConstructBoard = ({ EventData }) => {
 
         const fetchAwayTeamLogo = async () => {
             try {
-                const response = await axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//team-logo/${EventData.awayTeam.id}`);
+                const response = await axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/team-logo/${EventData.awayTeam.id}`);
                 if (response.status === 200) {
                     setAwayTeamLogo(response.data.imageData);
                 } else {
@@ -48,7 +48,7 @@ const ConstructBoard = ({ EventData }) => {
         if (EventData.awayTeam.id) {
             fetchAwayTeamLogo();
         }
-    }, [apiKey, EventData.homeTeam.id, EventData.awayTeam.id]);
+    }, [EventData.homeTeam.id, EventData.awayTeam.id]);
 
     const formatDate = (startTimestamp) => {
         const date = new Date(startTimestamp * 1000);

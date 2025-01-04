@@ -37,7 +37,7 @@ const ChangePassword = () => {
         return;
       }
 
-      const response = await axios.post(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/userSettings/update-password`, changeData);
+      const response = await axios.post(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/update-password`, changeData);
 
       if (response.status === 200) {
         const successMessage = window.confirm('Your password has been successfully updated. Would you like to return to your account?');

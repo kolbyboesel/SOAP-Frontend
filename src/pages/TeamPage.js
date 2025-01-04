@@ -22,10 +22,10 @@ const TeamPage = () => {
         setIsLoading(true);
         try {
             const [teamInfo, teamMedia, teamPlayers, teamLogo] = await Promise.all([
-                axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/team-info/${teamID}`),
-                axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/team-media/${teamID}`),
-                axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/team-roster/${teamID}`),
-                axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//team-logo/${teamID}`),
+                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/team-info/${teamID}`),
+                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/team-media/${teamID}`),
+                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/team-roster/${teamID}`),
+                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/team-logo/${teamID}`),
             ]);
 
             setGeneralTeamInfo(teamInfo.data);
@@ -37,7 +37,7 @@ const TeamPage = () => {
         } finally {
             setIsLoading(false);
         }
-    }, [apiKey, teamID]);
+    }, [teamID]);
 
     useEffect(() => {
         if (teamID) {

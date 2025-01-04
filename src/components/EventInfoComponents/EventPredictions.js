@@ -10,7 +10,7 @@ const EventPredictions = ({ eventInfo }) => {
         setIsLoading(true);
         try {
             const { data: gameWinner } = await axios.get(
-                `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/Prediction/game-winner/${eventInfo.homeTeam.id}/${eventInfo.awayTeam.id}`
+                `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/Prediction/game-winner/${eventInfo.homeTeam.id}/${eventInfo.awayTeam.id}`
             );
             setGameWinnerPrediction(gameWinner);
         } catch (error) {
@@ -18,7 +18,7 @@ const EventPredictions = ({ eventInfo }) => {
         } finally {
             setIsLoading(false);
         }
-    }, [apiKey, eventInfo]);
+    }, [eventInfo]);
 
     useEffect(() => {
         fetchPredictions();

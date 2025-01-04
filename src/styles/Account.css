@@ -102,12 +102,27 @@
     border-bottom-right-radius: 10px;
   }
   
-  button {
+  .account-button {
     padding: 10px 20px;
     background-color: gray;
     color: white;
     border: none;
     border-radius: 5px!important;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .account-button:hover {
+    background-color: darkgray;
+    color: white;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    border: none;
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s;

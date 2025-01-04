@@ -39,7 +39,7 @@ const Account = () => {
 
     if (confirmDelete) {
       try {
-        const response = await axios.delete(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/userSettings/delete/${settings.loginID}`);
+        const response = await axios.delete(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/userSettings/delete/${settings.loginID}`);
 
         if (response.status === 200) {
           alert('Your account has been successfully deleted.');

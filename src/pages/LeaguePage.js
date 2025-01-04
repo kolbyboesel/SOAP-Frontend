@@ -21,9 +21,9 @@ const LeaguePage = () => {
         setIsLoading(true);
         try {
             const [newLeagueInfo, newLeagueStandings, newLeagueLogo] = await Promise.all([
-                axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/league-info/${uniqueTournamentID}`),
-                axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/sofaScores/league-standings/${uniqueTournamentID}/${seasonID}`),
-                axios.get(`$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//tournament-logo/${uniqueTournamentID}`),
+                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/league-info/${uniqueTournamentID}`),
+                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/sofaScores/league-standings/${uniqueTournamentID}/${seasonID}`),
+                axios.get(`https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/tournament-logo/${uniqueTournamentID}`),
             ]);
             setLeagueInfo(newLeagueInfo.data);
             setLeagueStandings(newLeagueStandings.data.standings);
@@ -33,7 +33,7 @@ const LeaguePage = () => {
         } finally {
             setIsLoading(false);
         }
-    }, [apiKey, uniqueTournamentID, seasonID]);
+    }, [uniqueTournamentID, seasonID]);
 
     useEffect(() => {
         if (uniqueTournamentID) {

@@ -12,7 +12,6 @@ import TeamPage from '../src/pages/TeamPage';
 import Signup from '../src/pages/Signup';
 import Login from '../src/pages/Login';
 import EventInfo from '../src/pages/EventInfo';
-import UnderConstructionModal from "./components/UnderConstructionModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { UserSettingsProvider } from '../src/components/UserSettings';
@@ -21,7 +20,6 @@ const App = () => {
   return (
     <UserSettingsProvider>
       <Router>
-        <UnderConstructionModal />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

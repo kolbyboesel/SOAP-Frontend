@@ -16,7 +16,7 @@ const Favorites = () => {
         const fetchLeagueEvents = async (uniqueTournamentID, seasonID, scoresType) => {
             try {
                 const response = await axios.get(
-                    `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/SofaScores/league-scores/${uniqueTournamentID}/${seasonID}/${scoresType}`
+                    `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/SofaScores/league-scores/${uniqueTournamentID}/${seasonID}/${scoresType}`
                 );
                 if (response.status === 200) {
                     setEventsData((prevData) => [...prevData, ...response.data]);
@@ -31,7 +31,7 @@ const Favorites = () => {
         const fetchTeamScores = async (teamID, eventType) => {
             try {
                 const response = await axios.get(
-                    `$https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net//api/SofaScores/team-scores/${teamID}/${eventType}`
+                    `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/api/SofaScores/team-scores/${teamID}/${eventType}`
                 );
                 if (response.status === 200) {
                     setTeamScoresData((prevData) => [...prevData, ...response.data]);
@@ -65,7 +65,7 @@ const Favorites = () => {
         };
 
         fetchAllEvents();
-    }, [apiKey, userSettings.LeagueFavorites, userSettings.TeamFavorites]);
+    }, [userSettings.LeagueFavorites, userSettings.TeamFavorites]);
 
     const groupedEvents = eventsData.reduce((acc, event) => {
         const tournamentName = event.tournament.uniqueTournament.name;
@@ -145,76 +145,96 @@ const Favorites = () => {
 
     return (
         <div>
-            <FavoritesScrollMenu
-                userSettings={userSettings}
-            />
             {isLoading ? (
                 <div className="loading liveLoading">Loading&#8230;</div>
             ) : (
-                <div className="scroll-view pt-3 pb-5" id='top-favorites'>
-                    {sortedSelectedEvents.length > 0 ? (
-                        <div className="league-events-container">
-                            <div className="league-container">
-                                <h4>Favorites</h4>
-                                <div className="events">
-                                    {sortedSelectedEvents.map(({ teamName, event }, index) => {
-                                        // Check if this is the last event
-                                        const isLastEvent = index === sortedSelectedEvents.length - 1;
+                <>
+                    <FavoritesScrollMenu userSettings={userSettings} />
+                    <div className="scroll-view pt-3 pb-5" id="top-favorites">
+                        {sortedSelectedEvents.length > 0 ? (
+                            <div className="league-events-container">
+                                <div className="league-container">
+                                    <h4>Favorites</h4>
+                                    <div className="events">
+                                        {sortedSelectedEvents.map(({ teamName, event }, index) => {
+                                            const isLastEvent =
+                                                index === sortedSelectedEvents.length - 1;
 
-                                        return (
-                                            <div
-                                                key={index}
-                                                className={`event-board ${isLastEvent ? '' : 'bottom-border'}`}
-                                            >
-                                                <ConstructBoard EventData={event} />
-                                            </div>
-                                        );
-                                    })}
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    className={`event-board ${isLastEvent ? "" : "bottom-border"
+                                                        }`}
+                                                >
+                                                    <ConstructBoard EventData={event} />
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ) : (
-                        <div className="no-events-message league-container">
-                            <div className="page-text text-center">{liveScoreMessage}</div>
-                        </div>
-                    )}
-
-                    {Object.keys(groupedEvents).length > 0 ? (
-                        <div className="league-events-container">
-                            <div className="events-section">
-                                {Object.keys(groupedEvents).map((tournamentName, index) => {
-                                    const tournamentEvents = groupedEvents[tournamentName];
-
-                                    const selectedEvents = selectEvents(tournamentEvents);
-
-                                    if (selectedEvents.length > 0) {
-                                        return (
-                                            <div key={index} className="league-container">
-                                                <h4>{tournamentName}</h4>
-                                                <div className="events">
-                                                    {selectedEvents.map((event, i) => {
-                                                        const isLastEvent = i === selectedEvents.length - 1;
-
-                                                        return (
-                                                            <div
-                                                                key={i}
-                                                                className={`event-board ${isLastEvent ? '' : 'bottom-border'}`}
-                                                            >
-                                                                <ConstructBoard EventData={event} />
-                                                            </div>
-                                                        );
-                                                    })}
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-
-                                    return null;
-                                })}
+                        ) : (
+                            <div className="no-events-message league-container">
+                                <div className="page-text text-center">{liveScoreMessage}</div>
                             </div>
-                        </div>
-                    ) : null}
-                </div>
+                        )}
+
+                        {Object.keys(groupedEvents).length > 0 ? (
+                            <div className="league-events-container">
+                                <div className="events-section">
+                                    {Object.keys(groupedEvents).map(
+                                        (tournamentName, index) => {
+                                            const tournamentEvents =
+                                                groupedEvents[tournamentName];
+
+                                            const selectedEvents =
+                                                selectEvents(tournamentEvents);
+
+                                            if (selectedEvents.length > 0) {
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        className="league-container"
+                                                    >
+                                                        <h4>{tournamentName}</h4>
+                                                        <div className="events">
+                                                            {selectedEvents.map(
+                                                                (event, i) => {
+                                                                    const isLastEvent =
+                                                                        i ===
+                                                                        selectedEvents.length -
+                                                                        1;
+
+                                                                    return (
+                                                                        <div
+                                                                            key={i}
+                                                                            className={`event-board ${isLastEvent
+                                                                                ? ""
+                                                                                : "bottom-border"
+                                                                                }`}
+                                                                        >
+                                                                            <ConstructBoard
+                                                                                EventData={
+                                                                                    event
+                                                                                }
+                                                                            />
+                                                                        </div>
+                                                                    );
+                                                                }
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            }
+
+                                            return null;
+                                        }
+                                    )}
+                                </div>
+                            </div>
+                        ) : null}
+                    </div>
+                </>
             )}
 
             <footer className="text-center footer-style">
