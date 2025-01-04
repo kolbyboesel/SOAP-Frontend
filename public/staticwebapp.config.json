@@ -10,44 +10,28 @@
       "route": "/manifest.json",
       "headers": {
         "Cache-Control": "no-cache"
-      }
+      },
+      "rewrite": null
     },
     {
       "route": "/favicon.ico",
       "headers": {
         "Cache-Control": "no-cache"
-      }
+      },
+      "rewrite": null
     },
     {
       "route": "/logo192.png",
       "headers": {
         "Cache-Control": "no-cache"
-      }
+      },
+      "rewrite": null
     },
     {
       "route": "/logo512.png",
       "headers": {
         "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "route": "/static/*",
-      "rewrite": null
-    },
-    {
-      "route": "/manifest.json",
-      "rewrite": null
-    },
-    {
-      "route": "/favicon.ico",
-      "rewrite": null
-    },
-    {
-      "route": "/logo192.png",
-      "rewrite": null
-    },
-    {
-      "route": "/logo512.png",
+      },
       "rewrite": null
     },
     {
