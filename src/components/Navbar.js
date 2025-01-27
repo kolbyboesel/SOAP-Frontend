@@ -85,16 +85,6 @@ const Navbar = () => {
                   Live Scores
                 </NavLink>
               </li>
-              <li id="live-item-2" className="nav-item">
-                <NavLink
-                  id="live-link-2"
-                  className={({ isActive }) => classNames("nav-link", { active: isActive })}
-                  to="/Favorites"
-                  onClick={closeNavbar}
-                >
-                  Favorites
-                </NavLink>
-              </li>
             </ul>
           </div>
 

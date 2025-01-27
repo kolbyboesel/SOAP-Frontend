@@ -365,7 +365,7 @@ input[type="email"]:focus {
   background-color: lightgray;
   padding: 50px;
   min-height: 100vh;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .bottom-border {
