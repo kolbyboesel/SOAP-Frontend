@@ -55,6 +55,7 @@ const LeagueHome = ({ leagueInfo }) => {
     return (
         <div className='league-container'>
             <div className='team-header'>
+                
                 <label htmlFor='date-picker' style={{ paddingRight: '10px' }}>Select Date: </label>
                 <input
                     id='date-picker'
