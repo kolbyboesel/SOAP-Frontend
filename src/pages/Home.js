@@ -124,7 +124,8 @@ const Home = () => {
       return nextEvent;
     }
 
-    return events[0];
+    return null;
+
   };
 
   const selectedEvents = Object.keys(groupedTeamScores).map((teamName) => {
@@ -136,12 +137,15 @@ const Home = () => {
     };
   });
 
-  const sortedSelectedEvents = [...selectedEvents].sort((a, b) => {
-    const timestampA = new Date(a.event.startTimestamp).getTime();
-    const timestampB = new Date(b.event.startTimestamp).getTime();
+  const sortedSelectedEvents = [...selectedEvents]
+    .filter(item => item.event)
+    .sort((a, b) => {
+      const timestampA = new Date(a.event.startTimestamp).getTime();
+      const timestampB = new Date(b.event.startTimestamp).getTime();
 
-    return timestampA - timestampB;
-  });
+      return timestampA - timestampB;
+    });
+
 
   return (
     <div>
@@ -149,7 +153,7 @@ const Home = () => {
         <div className="loading liveLoading">Loading&#8230;</div>
       ) : (
         <>
-          <FavoritesScrollMenu userSettings={userSettings} />
+          <FavoritesScrollMenu userSettings={userSettings} isLoading={isLoading} />
           <div className="scroll-view pt-3 pb-5" id="top-favorites">
             {sortedSelectedEvents.length > 0 ? (
               <div className="league-events-container">

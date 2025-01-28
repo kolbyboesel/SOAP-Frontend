@@ -105,7 +105,7 @@ const TeamPage = () => {
                                 case 'Roster':
                                     return <TeamRoster teamInfo={generalTeamInfo} teamPlayers={teamPlayers} />;
                                 case 'Schedule':
-                                    return <TeamSchedule teamInfo={generalTeamInfo} />;
+                                    return <TeamSchedule teamID={teamID} />;
                                 default:
                                     return <TeamHome teamInfo={generalTeamInfo} teamMedia={teamMedia} />;
                             }

@@ -87,11 +87,11 @@ const LeaguePage = () => {
                         {(() => {
                             switch (leagueSubpage) {
                                 case 'Home':
-                                    return <LeagueHome leagueInfo={leagueInfo} />;
+                                    return <LeagueHome leagueInfo={leagueInfo} uniqueTournamentID={uniqueTournamentID} seasonID={seasonID} />;
                                 case 'Standings':
                                     return <LeagueStandings leagueStandings={leagueStandings} />;
                                 default:
-                                    return <LeagueHome leagueInfo={leagueInfo} />;
+                                    return <LeagueHome leagueInfo={leagueInfo} uniqueTournamentID={uniqueTournamentID} seasonID={seasonID} />;
                             }
                         })()}
 
