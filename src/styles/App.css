@@ -546,14 +546,12 @@ input[type="email"]:focus {
 @media screen and (max-width: 450px) {
   .event-header-img {
     max-width: 25%;
-    max-height: 25%;
     margin-left: 15px;
     margin-right: 15px;
   }
 
   .team-header-img {
     max-width: 25%;
-    max-height: 25%;
     margin-left: 15px;
     margin-right: 15px;
   }
