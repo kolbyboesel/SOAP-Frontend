@@ -2,6 +2,7 @@ import './styles/App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from '../src/pages/Home';
 import LiveScores from '../src/pages/LiveScores';
 import Account from '../src/pages/Account';
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
+        <Footer />
       </Router>
     </UserSettingsProvider>
   );

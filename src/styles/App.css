@@ -25,6 +25,32 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.footer-container {
+  background-color: lightgray;
+  color: #f44336!important;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer-container p{
+  color: #f44336!important;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 10px;
+}
+
+.social-links a {
+  color: #f44336;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+}
 
 .width-max {
   width: 100%;
