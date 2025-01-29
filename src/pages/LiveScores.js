@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ConstructBoard from '../components/ConstructBoard';
+import ConstructBoard from '../components/Scoreboard/ConstructBoard';
+import { FaArrowUp } from 'react-icons/fa';
 
 const LiveScores = () => {
 
@@ -34,7 +35,7 @@ const LiveScores = () => {
   return (
     <div>
       <div className="no-gutters align-flex-start" id="top-scores">
-        <div className="no-gutters responsiveScrollContainer">
+        <div className="no-gutters horizontal-scroll-menu">
           <div className="col scrollmenu mobileScroll">
             <button
               onClick={() => handleSportClick('baseball')}
@@ -111,9 +112,9 @@ const LiveScores = () => {
             )}
           </div>
         </div>
-        <footer className="text-center footer-style">
+        <footer className="text-center footer-container">
           <a href="#top-scores" className="scroll-to-top-btn">
-            <i className="fas fa-arrow-up"></i> To the top
+            <FaArrowUp size={18} /> To the Top
           </a>
         </footer>
       </div>

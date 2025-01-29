@@ -9,19 +9,19 @@
   }
   
   @media (min-width: 992px) {
-    .center-container {
+    .site-navbar .center-container {
         display: flex;
         position: relative;
         margin: auto;
     }
 
-    .right-container {
+    .site-navbar .right-container {
         display: flex;
         position: absolute;
         right: 10px;
     }
 
-    .nav-item {
+    .site-navbar .nav-item {
       display: inline-block;
     }
   }

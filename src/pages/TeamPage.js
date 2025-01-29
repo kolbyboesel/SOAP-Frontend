@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/Home.css';
 import TeamHome from '../components/TeamComponents/TeamHome';
 import TeamRoster from '../components/TeamComponents/TeamRoster';
 import TeamSchedule from '../components/TeamComponents/TeamSchedule';
+import { FaArrowUp } from 'react-icons/fa';
 
 const TeamPage = () => {
 
@@ -111,9 +111,9 @@ const TeamPage = () => {
                             }
                         })()}
                     </div>
-                    <footer className="text-center footer-style">
+                    <footer className="text-center footer-container">
                         <a href="#top-team" className="scroll-to-top-btn">
-                            <i className="fas fa-arrow-up"></i> To the top
+                            <FaArrowUp size={18} /> To the Top
                         </a>
                     </footer>
                 </div>

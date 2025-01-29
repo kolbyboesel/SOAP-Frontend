@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/ConstructBoard.css';
-import ScoreFuture from './ScoreFuture';
-import ScoreLive from './ScoreLive';
-import ScoreboardInfo from './ScoreboardInfo';
+import ScoreFuture from './Subviews/ScoreFuture';
+import ScoreLive from './Subviews/ScoreLive';
+import ScoreboardInfo from './Subviews/ScoreboardInfo';
 
 const ConstructBoard = ({ EventData }) => {
 

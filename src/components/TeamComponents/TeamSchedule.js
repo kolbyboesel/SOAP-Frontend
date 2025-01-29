@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import ConstructBoard from '../ConstructBoard';
+import ConstructBoard from '../Scoreboard/ConstructBoard';
 
 const TeamSchedule = ({ teamID }) => {
     const [events, setEvents] = useState([]);

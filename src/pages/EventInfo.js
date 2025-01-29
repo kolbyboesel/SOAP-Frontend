@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import EventInfoHome from '../components/EventInfoComponents/EventInfoHome';
-import ScoreboardInfo from '../components/ScoreboardInfo';
+import ScoreboardInfo from '../components/Scoreboard/Subviews/ScoreboardInfo';
 import EventPredictions from '../components/EventInfoComponents/EventPredictions';
+import { FaArrowUp } from 'react-icons/fa';
 
 
 const EventInfo = () => {
@@ -84,9 +85,9 @@ const EventInfo = () => {
                         }
                     })()}
                 </div>
-                <footer className="text-center footer-style">
+                <footer className="text-center footer-container">
                     <a href="#top-event-info" className="scroll-to-top-btn">
-                        <i className="fas fa-arrow-up"></i> To the top
+                        <FaArrowUp size={18} /> To the Top
                     </a>
                 </footer>
             </div>

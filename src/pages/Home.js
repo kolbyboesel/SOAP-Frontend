@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import ConstructBoard from '../components/ConstructBoard';
+import ConstructBoard from '../components/Scoreboard/ConstructBoard';
 import FavoritesScrollMenu from '../components/FavoritesScrollMenu';
 import { UserSettingsContext } from '../../src/components/UserSettings';
+import { FaArrowUp } from 'react-icons/fa';
 
 const Home = () => {
 
@@ -150,7 +151,7 @@ const Home = () => {
   return (
     <div>
       {isLoading ? (
-        <div className="loading liveLoading">Loading&#8230;</div>
+        <div className="loading">Loading&#8230;</div>
       ) : (
         <>
           <FavoritesScrollMenu userSettings={userSettings} isLoading={isLoading} />
@@ -241,9 +242,9 @@ const Home = () => {
         </>
       )}
 
-      <footer className="text-center footer-style">
+      <footer className="text-center footer-container">
         <a href="#top-favorites" className="scroll-to-top-btn">
-          <i className="fas fa-arrow-up"></i> To the top
+          <FaArrowUp size={18} /> To the Top
         </a>
       </footer>
     </div>

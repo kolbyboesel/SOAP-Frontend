@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/Home.css';
 import LeagueHome from '../components/LeagueComponents/LeagueHome';
 import LeagueStandings from '../components/LeagueComponents/LeagueStandings';
+import { FaArrowUp } from 'react-icons/fa';
 
 const LeaguePage = () => {
 
@@ -96,9 +96,9 @@ const LeaguePage = () => {
                         })()}
 
                     </div>
-                    <footer className="text-center footer-style">
+                    <footer className="text-center footer-container">
                         <a href="#top-league" className="scroll-to-top-btn">
-                            <i className="fas fa-arrow-up"></i> To the top
+                            <FaArrowUp size={18} /> To the Top
                         </a>
                     </footer>
                 </div>

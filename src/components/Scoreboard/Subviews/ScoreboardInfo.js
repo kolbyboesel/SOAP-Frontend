@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/ConstructBoard.css';
 
 const ScoreboardInfo = ({ eventData, formattedDate, formattedTime }) => {
     const { status, time, tournament } = eventData;

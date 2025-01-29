@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { UserSettingsContext } from '../../src/components/UserSettings';
+import { UserSettingsContext } from '../../components/UserSettings';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

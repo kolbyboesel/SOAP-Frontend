@@ -56,7 +56,7 @@ const FavoritesScrollMenu = ({ userSettings }) => {
     }, [userSettings]);
 
     return (
-        <div className="no-gutters responsiveScrollContainer bg-white">
+        <div className="no-gutters horizontal-scroll-menu bg-white">
             <div className="col scrollmenu mobileScroll">
                 {logos.map((logo, index) => (
                     <button

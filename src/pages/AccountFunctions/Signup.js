@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { UserSettingsContext } from '../components/UserSettings';
+import { UserSettingsContext } from '../../components/UserSettings';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -156,7 +156,7 @@ const Signup = () => {
           {error && <div style={{ color: 'red' }}>{error}</div>}
         </div>
 
-        <div className="container-fluid pb-5 pt-3 login-cancel">
+        <div className="container pb-5 pt-3 login-cancel">
           <a href="/" className="cancelbtn" style={{ borderRadius: '5px' }}>
             Cancel
           </a>
