@@ -5,7 +5,6 @@ import ScoreboardInfo from '../components/Scoreboard/Subviews/ScoreboardInfo';
 import EventPredictions from '../components/EventInfoComponents/EventPredictions';
 import { FaArrowUp } from 'react-icons/fa';
 
-
 const EventInfo = () => {
     const location = useLocation();
     const { eventData, homeTeamLogo, awayTeamLogo } = location.state;
@@ -86,7 +85,7 @@ const EventInfo = () => {
                     })()}
                 </div>
                 <footer className="text-center footer-container">
-                    <a href="#top-event-info" className="scroll-to-top-btn">
+                    <a href="#top-event-info" className="red-btn">
                         <FaArrowUp size={18} /> To the Top
                     </a>
                 </footer>

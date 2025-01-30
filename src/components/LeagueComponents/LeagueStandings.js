@@ -20,7 +20,7 @@ const LeagueStandings = ({ leagueStandings }) => {
     const sortedRows = filteredStandings.sort((a, b) => (a.position || 0) - (b.position || 0));
 
     return (
-        <div className='league-container'>
+        <div className='standard-container'>
             <div className='team-header'>
                 {uniqueTypes.length > 0 ? (
                     <select

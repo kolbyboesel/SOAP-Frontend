@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import Spinner from '../LoadingSpinner';
 
 const EventPredictions = ({ eventInfo }) => {
     const [gameWinnerPrediction, setGameWinnerPrediction] = useState('');
@@ -25,10 +26,11 @@ const EventPredictions = ({ eventInfo }) => {
     }, [eventInfo, fetchPredictions]);
 
     return (
-        <div className='league-container'>
+        <div className='standard-container'>
             {isLoading ? (
-                <div className="loading">Loading...</div>
+                <Spinner />
             ) : (
+
                 <div className="team-header-text">
                     <h4>Game Winner Prediction: {gameWinnerPrediction.gameSuggestion || "No prediction available"}</h4>
                 </div>

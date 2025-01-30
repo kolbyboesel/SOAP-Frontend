@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ConstructBoard from '../components/Scoreboard/ConstructBoard';
 import { FaArrowUp } from 'react-icons/fa';
+import Spinner from '../../src/components/LoadingSpinner';
 
 const LiveScores = () => {
 
@@ -86,34 +87,36 @@ const LiveScores = () => {
         </div>
 
         {/* Loading state */}
-        {isLoading && <div className="loading liveLoading">Loading&#8230;</div>}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="scroll-view pt-3 pb-5">
+            <div className="v-stack league-container">
+              {liveDataPage.length !== 0 ? (
+                liveDataPage.map((data, index) => {
+                  const isLastData = index === liveDataPage.length - 1;
 
-        <div className="scroll-view pt-3 pb-5">
-          <div className="v-stack league-container">
-            {liveDataPage.length !== 0 ? (
-              liveDataPage.map((data, index) => {
-                const isLastData = index === liveDataPage.length - 1;
-
-                return (
-                  <div
-                    key={index}
-                    className={`live-score-board ${isLastData ? '' : 'bottom-border'}`}
-                  >
-                    <ConstructBoard EventData={data} />
+                  return (
+                    <div
+                      key={index}
+                      className={`live-score-board ${isLastData ? '' : 'bottom-border'}`}
+                    >
+                      <ConstructBoard EventData={data} />
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="row no-gutters score-container-scroll xs-padding overflow-auto liveScoresContainer">
+                  <div className="page-text text-center">
+                    {liveScoreMessage}
                   </div>
-                );
-              })
-            ) : (
-              <div className="row no-gutters score-container-scroll xs-padding overflow-auto liveScoresContainer">
-                <div className="page-text text-center">
-                  {liveScoreMessage}
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
+        )}
         <footer className="text-center footer-container">
-          <a href="#top-scores" className="scroll-to-top-btn">
+          <a href="#top-scores" className="red-btn">
             <FaArrowUp size={18} /> To the Top
           </a>
         </footer>

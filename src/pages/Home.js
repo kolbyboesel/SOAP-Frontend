@@ -4,13 +4,14 @@ import ConstructBoard from '../components/Scoreboard/ConstructBoard';
 import FavoritesScrollMenu from '../components/FavoritesScrollMenu';
 import { UserSettingsContext } from '../../src/components/UserSettings';
 import { FaArrowUp } from 'react-icons/fa';
+import Spinner from '../../src/components/LoadingSpinner';
 
 const Home = () => {
-
   const [isLoading, setIsLoading] = useState(true);
   const { userSettings } = useContext(UserSettingsContext);
   const [eventsData, setEventsData] = useState([]);
   const [teamScoresData, setTeamScoresData] = useState([]);
+  const [logos, setLogos] = useState([]);
   const [liveScoreMessage] = useState('Sign in to add your favorite leagues and view live scores here');
 
   useEffect(() => {
@@ -44,8 +45,56 @@ const Home = () => {
       }
     };
 
+    const fetchLogos = async () => {
+      const fetchedLogos = [];
+      const promises = [];
+
+      if (userSettings.LeagueFavorites?.length > 0) {
+        userSettings.LeagueFavorites.forEach((favorite) => {
+          const promise = axios.get(
+            `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/tournament-logo/${favorite.uniqueTournamentID}`
+          )
+            .then(response => {
+              fetchedLogos.push({
+                type: "league",
+                id: favorite.uniqueTournamentID,
+                seasonID: favorite.seasonID,
+                logo: response.data.imageData,
+              });
+            })
+            .catch(error => {
+              console.error("Error fetching league logo:", error);
+            });
+          promises.push(promise);
+        });
+      }
+
+      if (userSettings.TeamFavorites?.length > 0) {
+        userSettings.TeamFavorites.forEach((favorite) => {
+          const promise = axios.get(
+            `https://soapscores-dvbnchand2byhvhc.centralus-01.azurewebsites.net/team-logo/${favorite.teamID}`
+          )
+            .then(response => {
+              fetchedLogos.push({
+                type: "team",
+                id: favorite.teamID,
+                logo: response.data.imageData,
+              });
+            })
+            .catch(error => {
+              console.error("Error fetching team logo:", error);
+            });
+          promises.push(promise);
+        });
+      }
+
+      await Promise.all(promises);
+      setLogos(fetchedLogos);
+    };
+
     const fetchAllEvents = async () => {
       const promises = [];
+      setIsLoading(true);
 
       if (userSettings.LeagueFavorites?.length > 0) {
         userSettings.LeagueFavorites.forEach((league) => {
@@ -61,6 +110,7 @@ const Home = () => {
         });
       }
 
+      await fetchLogos();
       await Promise.all(promises);
       setIsLoading(false);
     };
@@ -126,7 +176,6 @@ const Home = () => {
     }
 
     return null;
-
   };
 
   const selectedEvents = Object.keys(groupedTeamScores).map((teamName) => {
@@ -147,18 +196,17 @@ const Home = () => {
       return timestampA - timestampB;
     });
 
-
   return (
     <div>
       {isLoading ? (
-        <div className="loading">Loading&#8230;</div>
+        <Spinner />
       ) : (
         <>
-          <FavoritesScrollMenu userSettings={userSettings} isLoading={isLoading} />
+          <FavoritesScrollMenu userSettings={userSettings} logos={logos} />
           <div className="scroll-view pt-3 pb-5" id="top-favorites">
             {sortedSelectedEvents.length > 0 ? (
               <div className="league-events-container">
-                <div className="league-container">
+                <div className="standard-container">
                   <h4>Favorites</h4>
                   <div className="events">
                     {sortedSelectedEvents.map(({ teamName, event }, index) => {
@@ -179,7 +227,7 @@ const Home = () => {
                 </div>
               </div>
             ) : (
-              <div className="no-events-message league-container">
+              <div className="no-events-message standard-container">
                 <div className="page-text text-center">{liveScoreMessage}</div>
               </div>
             )}
@@ -199,7 +247,7 @@ const Home = () => {
                         return (
                           <div
                             key={index}
-                            className="league-container"
+                            className="standard-container"
                           >
                             <h4>{tournamentName}</h4>
                             <div className="events">
@@ -243,7 +291,7 @@ const Home = () => {
       )}
 
       <footer className="text-center footer-container">
-        <a href="#top-favorites" className="scroll-to-top-btn">
+        <a href="#top-favorites" className="red-btn">
           <FaArrowUp size={18} /> To the Top
         </a>
       </footer>

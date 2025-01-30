@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import ConstructBoard from '../Scoreboard/ConstructBoard';
+import Spinner from '../LoadingSpinner';
 
 const LeagueHome = ({ leagueInfo, uniqueTournamentID, seasonID }) => {
     const [selectedDate, setSelectedDate] = useState(() => {
@@ -37,7 +38,7 @@ const LeagueHome = ({ leagueInfo, uniqueTournamentID, seasonID }) => {
                 });
 
                 setEvents(sortedEvents);
-                if (events.length === 0) {
+                if (sortedEvents.length === 0) {
                     setScoreType('Events');
                 }
             } catch (err) {
@@ -47,7 +48,7 @@ const LeagueHome = ({ leagueInfo, uniqueTournamentID, seasonID }) => {
                 setLoading(false);
             }
         },
-        [uniqueTournamentID, events.length]
+        [uniqueTournamentID]
     );
 
     const fetchEvents = useCallback(async () => {
@@ -98,48 +99,54 @@ const LeagueHome = ({ leagueInfo, uniqueTournamentID, seasonID }) => {
     }, []);
 
     return (
-        <div className='league-container'>
-            <div className='team-header'>
-                {scoreType === 'Date' ? (
+        <div className='standard-container'>
+            {loading ? (
+                <Spinner />
+            ) : (
+                <>
                     <div className='team-header'>
-                        <label htmlFor='date-picker' style={{ paddingRight: '10px' }}>Select Date: </label>
-                        <input
-                            id='date-picker'
-                            type='date'
-                            value={selectedDate}
-                            onChange={(e) => setSelectedDate(e.target.value)}
-                            className='date-picker'
-                            style={{ float: 'right', width: '80%', margin: '0 0 1rem' }}
-                        />
-                    </div>
-                ) : (
-                    <select
-                        value={eventScoreType}
-                        onChange={(e) => setEventScoreType(e.target.value)}
-                        className="score-type-picker"
-                    >
-                        <option value="last">Past and Live Scores</option>
-                        <option value="next">Upcoming Games</option>
-                    </select>
-                )}
-            </div>
-            <div className='events-list'>
-                {events.length > 0 ? (
-                    events.map((event, index) => {
-                        const isLastEvent = index === events.length - 1;
-                        return (
-                            <div
-                                key={event.id}
-                                className={`live-score-board ${isLastEvent ? '' : 'bottom-border'}`}
-                            >
-                                <ConstructBoard EventData={event} />
+                        {scoreType === 'Date' ? (
+                            <div className='team-header'>
+                                <label htmlFor='date-picker' style={{ paddingRight: '10px' }}>Select Date: </label>
+                                <input
+                                    id='date-picker'
+                                    type='date'
+                                    value={selectedDate}
+                                    onChange={(e) => setSelectedDate(e.target.value)}
+                                    className='date-picker'
+                                    style={{ float: 'right', width: '80%', margin: '0 0 1rem' }}
+                                />
                             </div>
-                        );
-                    })
-                ) : (
-                    !loading && <p>No events found for the selected date.</p>
-                )}
-            </div>
+                        ) : (
+                            <select
+                                value={eventScoreType}
+                                onChange={(e) => setEventScoreType(e.target.value)}
+                                className="score-type-picker"
+                            >
+                                <option value="last">Past and Live Scores</option>
+                                <option value="next">Upcoming Games</option>
+                            </select>
+                        )}
+                    </div>
+                    <div className='events-list'>
+                        {events.length > 0 ? (
+                            events.map((event, index) => {
+                                const isLastEvent = index === events.length - 1;
+                                return (
+                                    <div
+                                        key={event.id}
+                                        className={`live-score-board ${isLastEvent ? '' : 'bottom-border'}`}
+                                    >
+                                        <ConstructBoard EventData={event} />
+                                    </div>
+                                );
+                            })
+                        ) : (
+                            <p>No events found for the selected date.</p>
+                        )}
+                    </div>
+                </>
+            )}
         </div>
     );
 };

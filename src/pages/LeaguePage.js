@@ -5,6 +5,7 @@ import axios from 'axios';
 import LeagueHome from '../components/LeagueComponents/LeagueHome';
 import LeagueStandings from '../components/LeagueComponents/LeagueStandings';
 import { FaArrowUp } from 'react-icons/fa';
+import Spinner from '../../src/components/LoadingSpinner';
 
 const LeaguePage = () => {
 
@@ -44,7 +45,7 @@ const LeaguePage = () => {
     return (
         <div key={leagueInfo.uniqueTournament?.name || 'default'}>
             {isLoading ? (
-                <div className="loading liveLoading">Loading&#8230;</div>
+                <Spinner />
             ) : (
                 <div className="no-gutters align-flex-start" id="top-league">
 
@@ -97,7 +98,7 @@ const LeaguePage = () => {
 
                     </div>
                     <footer className="text-center footer-container">
-                        <a href="#top-league" className="scroll-to-top-btn">
+                        <a href="#top-league" className="red-btn">
                             <FaArrowUp size={18} /> To the Top
                         </a>
                     </footer>

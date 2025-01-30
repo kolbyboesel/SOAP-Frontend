@@ -1,0 +1,35 @@
+:root {
+    --primary-color: #f44336;
+    --secondary-color: #ffffff;
+    --background-color: #f0f0f0;
+    --text-color: #333333;
+    --default-btn-hover-color: #f44336;
+    --default-btn-transition: 0.4s;
+    --default-border-radius: 10px;
+  }
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--primary-color);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

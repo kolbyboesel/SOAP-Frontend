@@ -3,9 +3,7 @@
   --primary-color: #f44336;
   --secondary-color: #ffffff;
   --background-color: #f0f0f0;
-  --text-color: #333333;
-  --default-btn-hover-color: #f44336;
-  --default-btn-transition: 0.4s;
+  --default-btn-hover-color: #fafafa;
   --default-border-radius: 10px;
 }
 body {
@@ -29,6 +27,7 @@ a {
   transition: 0.3s all ease;
   text-decoration: none;
   color: inherit;
+
 }
 
 /* Footer Style */
@@ -57,6 +56,30 @@ a {
 
 .social-links a:hover {
   transform: scale(1.1);
+}
+
+.red-btn {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.75rem 1rem;
+  border-radius: var(--default-border-radius);
+  text-decoration: none;
+}
+
+.red-btn:hover {
+  background-color: #a52727!important;
+}
+
+.black-btn {
+  background-color: black;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: var(--default-border-radius);
+  text-decoration: none;
+}
+
+.black-btn:hover {
+  background-color: #202020!important;
 }
 
 /*  Style */
@@ -118,6 +141,32 @@ a {
   display: flex;
   flex-wrap: wrap;
 }
+
+.standard-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: var(--default-border-radius);
+  margin-top: 20px;
+  display: grid;
+}
+
+.account-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: var(--default-border-radius);
+}
+
+.account-container h2{
+  text-align: center;
+  color: black;
+
+}
+
+.account-container p{
+  text-align: center;
+  color: black;
+}
+
 
 .login-cancel {
   display: flex;
@@ -385,14 +434,6 @@ input[type="email"]:focus {
     min-height: 100vh;
     margin-bottom: 20px;
   }
-}
-
-.league-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: var(--default-border-radius);
-  margin-top: 20px;
-  display: grid;
 }
 
 .scroll-view {

@@ -3,7 +3,7 @@ import React from 'react';
 const EventInfoHome = () => {
 
     return (
-        <div className="media-container">
+        <div className="standard-container">
 
         </div>
     );

@@ -4,7 +4,7 @@ const TeamRoster = ({ teamInfo, teamPlayers }) => {
     const validPlayers = Array.isArray(teamPlayers) ? teamPlayers : [];
     console.log("Valid Players:", validPlayers);
     return (
-        <div className="league-container">
+        <div className="standard-container">
             {validPlayers.length > 0 ? (
                 validPlayers.map((playerWrapper, index) => {
                     // Extract the `player` object from each wrapper

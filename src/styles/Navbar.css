@@ -48,10 +48,21 @@
   .nav-link.active {
     font-weight: bold !important;
   }
+
+  .navbar-logo {
+    position: relative;
+    left: 15px;
+    font-family: 'AvenirNext-DemiBoldItalic';
+  }
+
   @media screen and (max-width: 992px) {
-  
     .nav-link {
         text-align: center;
+    }
+
+    .navbar-logo {
+      margin-left: calc(50% - 26.5px);
+      left: 0px!important;
     }
   }
   

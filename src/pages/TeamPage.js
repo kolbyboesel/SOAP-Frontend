@@ -6,6 +6,7 @@ import TeamHome from '../components/TeamComponents/TeamHome';
 import TeamRoster from '../components/TeamComponents/TeamRoster';
 import TeamSchedule from '../components/TeamComponents/TeamSchedule';
 import { FaArrowUp } from 'react-icons/fa';
+import Spinner from '../../src/components/LoadingSpinner';
 
 const TeamPage = () => {
 
@@ -48,7 +49,7 @@ const TeamPage = () => {
     return (
         <div key={generalTeamInfo.team?.name || 'default'}>
             {isLoading ? (
-                <div className="loading liveLoading">Loading&#8230;</div>
+                <Spinner />
             ) : (
                 <div className="no-gutters align-flex-start" id="top-team">
 
@@ -112,7 +113,7 @@ const TeamPage = () => {
                         })()}
                     </div>
                     <footer className="text-center footer-container">
-                        <a href="#top-team" className="scroll-to-top-btn">
+                        <a href="#top-team" className="red-btn">
                             <FaArrowUp size={18} /> To the Top
                         </a>
                     </footer>

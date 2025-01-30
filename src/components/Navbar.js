@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <nav className="site-navbar navbar navbar-expand-lg navbar-dark navmenu">
-      <Link className="navbar-brand" to="/" style={{ position: 'relative', left: '15px', fontFamily: "'AvenirNext-DemiBoldItalic'" }}>
+      <Link className="navbar-brand navbar-logo" to="/">
         SOAP
       </Link>
       <button

@@ -62,19 +62,19 @@ const Account = () => {
 
   return (
     <div className="scroll-view pt-3 pb-3">
-      <div className="account-header">
+      <div className="container account-container">
         <h2>{settings.firstName || 'N/A'} {settings.lastName || 'N/A'}</h2>
         <p>{settings.loginID || 'N/A'}</p>
       </div>
 
       <div className="container" style={{ paddingTop: '50px' }}>
-        <button onClick={handleEmailClick}>
+        <button className="black-btn" onClick={handleEmailClick}>
           Change Password
         </button>
       </div>
 
       <div className="container" style={{ paddingTop: '50px' }}>
-        <button className="account-delete-btn" onClick={handleDeleteAccount}>
+        <button className="red-btn" onClick={handleDeleteAccount}>
           Delete Account
         </button>
       </div>
