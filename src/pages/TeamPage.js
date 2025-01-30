@@ -47,11 +47,11 @@ const TeamPage = () => {
     }, [teamID, fetchTeamData]);
 
     return (
-        <div key={generalTeamInfo.team?.name || 'default'}>
+        <>
             {isLoading ? (
                 <Spinner />
             ) : (
-                <div className="no-gutters align-flex-start" id="top-team">
+                <div key={generalTeamInfo.team?.name || 'default'} className="flex-container no-gutters align-flex-start" id="top-team">
 
                     <div className="team-header">
                         <img src={`data:image/png;base64,${teamLogo}`} alt="" className="team-header-img" />
@@ -119,7 +119,7 @@ const TeamPage = () => {
                     </footer>
                 </div>
             )}
-        </div>
+        </>
     );
 };
 

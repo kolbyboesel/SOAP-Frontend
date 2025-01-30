@@ -32,7 +32,7 @@ const EventPredictions = ({ eventInfo }) => {
             ) : (
 
                 <div className="team-header-text">
-                    <h4>Game Winner Prediction: {gameWinnerPrediction.gameSuggestion || "No prediction available"}</h4>
+                    <h6 className='center-text' >Game Winner Prediction: {gameWinnerPrediction.gameSuggestion || "No prediction available"}</h6>
                 </div>
             )}
         </div>

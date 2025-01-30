@@ -6,7 +6,7 @@ import Spinner from '../LoadingSpinner';
 const TeamSchedule = ({ teamID }) => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [eventScoreType, setEventScoreType] = useState('last');
+    const [eventScoreType, setEventScoreType] = useState('');
 
     const fetchEvents = useCallback(async (teamID, eventScoreType) => {
         setLoading(true);

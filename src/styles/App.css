@@ -142,6 +142,13 @@ a {
   flex-wrap: wrap;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
 .standard-container {
   background-color: white;
   padding: 20px;
@@ -420,7 +427,6 @@ input[type="email"]:focus {
   .scroll-view {
     background-color: lightgray;
     padding: 20px!important;
-    min-height: 100vh;
     margin-bottom: 20px;
   }
 }
@@ -431,7 +437,6 @@ input[type="email"]:focus {
     padding: 20px!important;
     padding-left: 200px!important;
     padding-right: 200px!important;
-    min-height: 100vh;
     margin-bottom: 20px;
   }
 }
@@ -439,7 +444,7 @@ input[type="email"]:focus {
 .scroll-view {
   background-color: lightgray;
   padding: 50px;
-  min-height: 100vh;
+  flex-grow: 1;
   margin-bottom: 0px;
 }
 
@@ -463,8 +468,9 @@ input[type="email"]:focus {
   display: flex;
   max-height: 75px;
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
 }
 
 .team-header-img {
@@ -478,7 +484,6 @@ input[type="email"]:focus {
   width: 100%;
   display: grid;
   align-items: center;
-  padding: 10px;
 }
 
 .media-container {
@@ -540,8 +545,9 @@ input[type="email"]:focus {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
 }
 
 .event-info-header-team-home {

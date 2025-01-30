@@ -43,11 +43,11 @@ const LeaguePage = () => {
     }, [uniqueTournamentID, fetchLeagueData]);
 
     return (
-        <div key={leagueInfo.uniqueTournament?.name || 'default'}>
+        <>
             {isLoading ? (
                 <Spinner />
             ) : (
-                <div className="no-gutters align-flex-start" id="top-league">
+                <div key={leagueInfo.uniqueTournament?.name || 'default'} className="flex-container no-gutters align-flex-start" id="top-league">
 
                     <div className="team-header">
                         <img src={`data:image/png;base64,${leagueLogo}`} alt="" className="team-header-img" />
@@ -104,7 +104,7 @@ const LeaguePage = () => {
                     </footer>
                 </div>
             )}
-        </div>
+        </>
     );
 };
 

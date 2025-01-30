@@ -12,7 +12,8 @@ const Home = () => {
   const [eventsData, setEventsData] = useState([]);
   const [teamScoresData, setTeamScoresData] = useState([]);
   const [logos, setLogos] = useState([]);
-  const [liveScoreMessage] = useState('Sign in to add your favorite leagues and view live scores here');
+  //const [liveScoreMessage] = useState('Log In or Sign Up to add your favorite leagues and view live scores here!');
+  const [liveScoreMessage] = useState('Please Log In to access view your favorite leagues and teams! Editing favorites is currently only available on the iOS app');
 
   useEffect(() => {
     const fetchLeagueEvents = async (uniqueTournamentID, seasonID, scoresType) => {
@@ -197,11 +198,11 @@ const Home = () => {
     });
 
   return (
-    <div>
+    <>
       {isLoading ? (
         <Spinner />
       ) : (
-        <>
+        <div className='flex-container'>
           <FavoritesScrollMenu userSettings={userSettings} logos={logos} />
           <div className="scroll-view pt-3 pb-5" id="top-favorites">
             {sortedSelectedEvents.length > 0 ? (
@@ -287,7 +288,7 @@ const Home = () => {
               </div>
             ) : null}
           </div>
-        </>
+        </div>
       )}
 
       <footer className="text-center footer-container">
@@ -295,7 +296,7 @@ const Home = () => {
           <FaArrowUp size={18} /> To the Top
         </a>
       </footer>
-    </div>
+    </>
   );
 };
 
